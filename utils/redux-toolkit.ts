@@ -18,6 +18,10 @@ const createRedux = (nameState: string, asyncThunk?: (AsyncThunk<any, Action | u
                 state.data = null;
                 state.success = false;
                 state.isLoading = false;
+                state.componentId = undefined;
+                state.statusCode = undefined;
+                state.error = undefined;
+                state.message = '';
             }
         },
         extraReducers(builder) {
@@ -36,8 +40,8 @@ const createRedux = (nameState: string, asyncThunk?: (AsyncThunk<any, Action | u
                     if (getData.data) state.data = getData.data as Obj;
                     state.message = 'Thành công!';
                     state.error = null;
+                    state.success = true;
                     if (getData.errors) {
-                        state.data = null;
                         state.success = false;
                         state.error = (getData.errors as Obj[]);
                         state.message = (getData.errors as Obj[])?.[0]?.message as string;

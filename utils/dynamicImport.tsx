@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
 import { Folder } from "@/global";
 import { Obj } from "@/global/interface";
+import MindXLoading from "@/components/MindXLoading";
 
 const LazyImport = (folder: keyof typeof Folder, dir: string, props?: Obj, ssr?: boolean) => {
 
@@ -17,7 +18,7 @@ const LazyImport = (folder: keyof typeof Folder, dir: string, props?: Obj, ssr?:
         }
     }, {
         ssr: ssr ?? false,
-        loading: () => <p>Loading...</p>
+        loading: () => <MindXLoading centered />
     });
     return () => <DynamicComponent {...props} />;
 }

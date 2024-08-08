@@ -5,7 +5,7 @@ const httpClient = axios.create({
     baseURL: process.env.NEXT_PUBLIC_SERVER_API,
 });
 httpClient.interceptors.request.use(function (config) {
-    (config.headers as Obj).Authorization = localStorage.getItem('access_token') as string;
+    (config.headers as Obj).Authorization = `Bearer ${localStorage.getItem('access_token') as string}`;
     return config;
 }, function (error) {
     return Promise.reject(error);
@@ -26,20 +26,21 @@ const actionRequest = async (standardQuery: 'REST' | 'GRAPHQL', method: 'get' | 
             default:
                 response = await httpClient.post('graphql', request?.graphQl, {
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
                     }
                 });
                 break;
         }
         return response;
-    } catch (error) {
+    } catch (error: any) {
         return {
             data: {
                 isLoading: false,
                 success: false,
                 error,
                 data: null,
-                componentId: request?.componentId
+                componentId: request?.componentId,
+                message: error.message
             }
         }
     }

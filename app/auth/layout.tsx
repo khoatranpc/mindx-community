@@ -1,11 +1,25 @@
-import React from 'react';
+'use client';
+import React, { useLayoutEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import MindXLoading from '@/components/MindXLoading';
 import './styles.scss';
 
 interface Props {
-    children: React.ReactElement;
+    children: React.ReactNode;
 }
 
 const AuthLayout = (props: Props) => {
+    const router = useRouter();
+    const [loading, setLoading] = useState(true);
+
+    useLayoutEffect(() => {
+        const access_token = localStorage.getItem('access_token');
+        if (access_token) {
+            router.push('/mindx');
+        } else {
+            setLoading(false);
+        }
+    }, []);
     return (
         <div className={`authLayout min-h-screen w-screen flex justify-center p-16`}>
             <div className="bannerLog flex-1 min-h-full">
@@ -16,8 +30,8 @@ const AuthLayout = (props: Props) => {
                         <img src="/mindx.png" alt="" className="w-[10rem]" />
                     </div>
                     <h1 className="text-[3.6rem]">Chào mừng đến với <br /> <span className="font-bold text-[var(--base)] text-[4.8rem]">MindX Community</span></h1>
-                    <div className="form mt-[3.6rem]">
-                        {props.children}
+                    <div className="form mt-[3.6rem] flex-1">
+                        {loading ? <MindXLoading centered /> : props.children}
                     </div>
                     <div className="copyright flex items-end justify-between mt-auto">
                         <p className='flex items-end'>
@@ -30,5 +44,4 @@ const AuthLayout = (props: Props) => {
         </div>
     )
 }
-
 export default AuthLayout;

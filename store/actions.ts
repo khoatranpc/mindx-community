@@ -1,1 +1,3 @@
 export const QUERY_AUTH_LOGIN = 'QUERY_AUTH_LOGIN';
+
+export const QUERY_USER_INFO = 'QUERY_USER_INFO';
