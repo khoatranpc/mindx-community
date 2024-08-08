@@ -1,10 +1,16 @@
 'use client';
-import React from 'react';
+import React, { useRef } from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
 import { useFormik } from 'formik';
+import { uuid } from '@/utils';
+import { useAuthLogin } from '@/utils/hooks';
+import { queryLogin } from './query';
 import './styles.scss';
 
 const Login = () => {
+    const authLogin = useAuthLogin();
+    const componentId = useRef(uuid());
+    console.log(authLogin);
     const { values, setFieldValue, handleChange, handleSubmit } = useFormik({
         initialValues: {
             email: '',
@@ -12,7 +18,18 @@ const Login = () => {
             remember: true
         },
         onSubmit(values) {
-            console.log("🚀 ~ onSubmit ~ values:", values)
+            authLogin.post?.({
+                graphQl: {
+                    query: queryLogin,
+                    variables: {
+                        userAuthenticateInput: {
+                            email: values.email,
+                            password: values.password
+                        }
+                    }
+                },
+                componentId: componentId.current
+            });
         }
     });
     return (

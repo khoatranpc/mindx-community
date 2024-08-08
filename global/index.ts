@@ -1,3 +1,5 @@
+import { Action } from "./interface";
+
 const Folder = {
     APP: 'app',
     COMPONENTS: 'components',
@@ -6,4 +8,10 @@ const Folder = {
 
 export {
     Folder
+}
+
+export const initStateRedux: Action = {
+    isLoading: false,
+    success: false,
+    data: null,
 }
