@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+'use client';
 import { Inter } from "next/font/google";
 import ReduxProvider from "@/components/ReduxProvider";
 import { ToastContainer } from "react-toastify";
@@ -7,10 +7,6 @@ import "./globals.scss";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "MindX Community",
-  description: "MindX Community",
-};
 
 export default function RootLayout({
   children,
@@ -20,6 +16,9 @@ export default function RootLayout({
   return (
     <ReduxProvider>
       <html className="sm:text-[5px] md:text-[5px] lg:text-[5px] xl:text-[8px] 2xl:text-[10px]" lang="en">
+        <head>
+          <title>MindX Community</title>
+        </head>
         <body className={`${inter.className} min-h-screen`}>
           <ToastContainer />
           {children}

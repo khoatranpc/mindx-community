@@ -1,19 +1,23 @@
 import { Action, Obj } from "@/global/interface";
-import { AsyncThunk, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { AsyncThunk, createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { initStateRedux } from "@/global";
 import actionRequest from "./axios";
 
+interface Reducer {
+    [k: string]: (state: any, action?: PayloadAction<any>) => void
+}
 const createRequest = (type: string, endpoint: string, method: 'get' | 'post' | 'put' | 'delete', standardQuery: 'REST' | 'GRAPHQL'): any => {
     return createAsyncThunk(type, async (action: Action | any) => {
         const rs = await actionRequest(standardQuery, method, endpoint, action);
         return rs.data;
     });
 }
-const createRedux = (nameState: string, asyncThunk?: (AsyncThunk<any, Action | undefined, any> | undefined)[]) => {
+const createRedux = (nameState: string, asyncThunk?: (AsyncThunk<any, Action | undefined, any> | undefined)[], initData?: Action, reducer?: Reducer) => {
     return createSlice({
         name: nameState,
-        initialState: initStateRedux,
+        initialState: initData ?? initStateRedux,
         reducers: {
+            ...reducer,
             clear(state) {
                 state.data = null;
                 state.success = false;

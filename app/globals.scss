@@ -8,6 +8,23 @@ html {
 
 :root {
     --base: #bb0409;
-    --light-base: #b24246;
-    --op-base: #ffcacb;
+    --light-base: #fbf3f3;
+    --op-base: #fdf4f5;
+    --grey-base: #f8fafd;
+}
+
+.ant-menu {
+    ul.ant-menu-sub {
+        background-color: white !important;
+    }
+
+    li.ant-menu-item-selected {
+        background-color: var(--light-base) !important;
+        color: var(--base) !important;
+    }
+
+
+    .ant-menu-submenu-selected>.ant-menu-submenu-title {
+        color: var(--base) !important;
+    }
 }

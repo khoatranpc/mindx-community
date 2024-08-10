@@ -1,6 +1,11 @@
 import { clearAuthLogin, queryAuthLogin } from "@/store/reducer/auth/authLogin.reducer";
 import { clearUserInfo, queryUserInfor } from "@/store/reducer/users/user.reducer";
 import { createHookRedux } from ".";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "@/store";
+import { changeTheme } from "@/store/reducer/theme/theme.reducer";
+import { Query } from "@/global/interface";
+import { Theme } from "@/global/enum";
 
 const useAuthLogin = createHookRedux('authLoginReducer', {
     post: queryAuthLogin
@@ -10,8 +15,19 @@ const useUserInfo = createHookRedux('userInfo', {
     post: queryUserInfor
 }, clearUserInfo);
 
-
+const useTheme = () => {
+    const theme = useSelector((state: RootState) => state.theme);
+    const dispatch = useDispatch<AppDispatch>();
+    const change = (theme: Theme) => {
+        dispatch(changeTheme(theme));
+    }
+    return {
+        data: theme.data,
+        change
+    }
+}
 export {
     useAuthLogin,
-    useUserInfo
+    useUserInfo,
+    useTheme
 }

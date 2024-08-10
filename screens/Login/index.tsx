@@ -83,7 +83,7 @@ const Login = () => {
                     </div>
                 </Form.Item>
                 <Form.Item>
-                    <Button className="w-full" htmlType='submit' icon={authLogin.state.isLoading && <MindXLoading className='w-[1rem] p-[0.5rem]' />} disabled={authLogin.state.isLoading || authLogin.state.success}>Đăng nhập</Button>
+                    <Button className="w-full" htmlType='submit' icon={authLogin.state.isLoading && <MindXLoading className='w-[1rem!important] p-[0.5rem!important]' />} disabled={authLogin.state.isLoading || authLogin.state.success}>Đăng nhập</Button>
                     <p className='tunderline font-medium mt-[2.6rem] text-right text-[#0080ff]'>Đăng ký tham gia cộng đồng</p>
                 </Form.Item>
             </Form>
