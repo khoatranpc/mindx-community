@@ -1,7 +1,7 @@
 import React from 'react';
 import Course from '@/components/Course';
 import { Button, Divider, Dropdown, Input, MenuProps } from 'antd';
-import { FilterOutlined, SearchOutlined } from '@ant-design/icons';
+import { FilterOutlined, SearchOutlined, SortAscendingOutlined } from '@ant-design/icons';
 import ArrowUpDown from '@/icons/ArrowUpDown';
 import './styles.scss';
 
@@ -21,12 +21,20 @@ const Courses = () => {
             <div className="toolBar mb-[1.6rem] flex justify-between relative">
                 <div className='filter'>
                     <p className="mb-[1.2rem]"><span className="font-[500]">Bộ lọc</span> <FilterOutlined className="font-[500]" /></p>
-                    <Dropdown
-                        menu={{ items: itemsSort }}
-                        trigger={['click']}
-                    >
-                        <Button size='small'><ArrowUpDown className='h-[1.6rem]' /> Thời gian</Button>
-                    </Dropdown>
+                    <div className="listFilter flex gap-[1rem]">
+                        <Dropdown
+                            menu={{ items: itemsSort }}
+                            trigger={['click']}
+                        >
+                            <Button size='small'><ArrowUpDown className='h-[1.6rem]' /> Thời gian</Button>
+                        </Dropdown>
+                        <Dropdown
+                            menu={{ items: itemsSort }}
+                            trigger={['click']}
+                        >
+                            <Button size='small'><SortAscendingOutlined className='h-[1.6rem]' /> Chữ cái</Button>
+                        </Dropdown>
+                    </div>
                 </div>
                 <div className='fnc flex gap-[2.4rem] absolute right-0'>
                     <Input size='small' suffix={<SearchOutlined className='max-h-full' />} />
