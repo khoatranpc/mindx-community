@@ -1,0 +1,12 @@
+.introducePage {
+    min-height: 100vh;
+
+    .progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 0.3rem;
+        transform-origin: 0%;
+    }
+}

@@ -1,7 +1,6 @@
+import { LazyImport } from "@/utils/dynamicImport";
+
 export default function Home() {
-  return (
-    <main className="">
-      hihiihi
-    </main>
-  );
+  const IntroduceCpt = LazyImport('SCREENS', 'Introduce', undefined, undefined, true);
+  return <IntroduceCpt />;
 }

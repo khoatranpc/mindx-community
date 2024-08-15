@@ -1,11 +1,14 @@
-import React from 'react';
+'use client';
+import React, { useState } from 'react';
 import Course from '@/components/Course';
-import { Button, Divider, Dropdown, Input, MenuProps } from 'antd';
+import { Button, Divider, Drawer, Dropdown, Input, MenuProps } from 'antd';
 import { FilterOutlined, SearchOutlined, SortAscendingOutlined } from '@ant-design/icons';
+import FormCreateCourse from './FormCreateCourse';
 import ArrowUpDown from '@/icons/ArrowUpDown';
 import './styles.scss';
 
 const Courses = () => {
+    const [drawer, setDrawer] = useState(false);
     const itemsSort: MenuProps['items'] = [
         {
             key: 'ASC',
@@ -18,6 +21,13 @@ const Courses = () => {
     ]
     return (
         <div className='courses'>
+            <Drawer
+                title={<h2>Thêm mới khoá học</h2>}
+                open={drawer}
+                onClose={() => setDrawer(false)}
+            >
+                {drawer && <FormCreateCourse />}
+            </Drawer>
             <div className="toolBar mb-[1.6rem] flex justify-between relative">
                 <div className='filter'>
                     <p className="mb-[1.2rem]"><span className="font-[500]">Bộ lọc</span> <FilterOutlined className="font-[500]" /></p>
@@ -38,7 +48,7 @@ const Courses = () => {
                 </div>
                 <div className='fnc flex gap-[2.4rem] absolute right-0'>
                     <Input size='small' suffix={<SearchOutlined className='max-h-full' />} />
-                    <Button size='small'>Tạo</Button>
+                    <Button size='small' onClick={() => { setDrawer(true) }}>Tạo</Button>
                 </div>
             </div>
             <Divider />

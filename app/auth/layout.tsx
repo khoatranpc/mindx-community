@@ -1,5 +1,5 @@
 'use client';
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import MindXLoading from '@/components/MindXLoading';
 import './styles.scss';
@@ -12,7 +12,7 @@ const AuthLayout = (props: Props) => {
     const router = useRouter();
     const [loading, setLoading] = useState(true);
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         const access_token = localStorage.getItem('access_token');
         if (access_token) {
             router.push('/mindx');
