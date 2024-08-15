@@ -9,4 +9,10 @@
         height: 0.3rem;
         transform-origin: 0%;
     }
+
+    div.groupUser {
+        background-color: var(--base);
+        box-shadow: var(--light-base) 0px 8px 24px;
+        color: white !important;
+    }
 }
