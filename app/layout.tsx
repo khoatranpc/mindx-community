@@ -4,6 +4,7 @@ import ReduxProvider from "@/components/ReduxProvider";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import 'swiper/css';
+import 'react-vertical-timeline-component/style.min.css';
 import "./globals.scss";
 
 const inter = Inter({ subsets: ["latin"] });

@@ -1,0 +1,26 @@
+.vertical-timeline-element--work {
+    span.vertical-timeline-element-icon {
+        transform: 0;
+        transition: 0.5s;
+
+        &:has(img.moveRight) {
+            animation: move 0.5s 1 forwards;
+        }
+    }
+
+    .content {
+        p.des {
+            font-size: 1.4rem !important;
+        }
+    }
+
+    @keyframes move {
+        from {
+            transform: none;
+        }
+        
+        to {
+            transform: translateX(-75%);
+        }
+    }
+}

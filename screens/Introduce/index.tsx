@@ -4,14 +4,13 @@ import Typewriter from 'typewriter-effect';
 import React from 'react';
 import { Avatar } from "antd";
 import Header, { AnchorHref, AnchorIntroducePageTitle } from './Header';
+import ListLect from "./ListLect";
 import CallCenter from "@/icons/CallCenter";
 import Business from "@/icons/Business";
 import Programmer from "@/icons/Programmer";
 import Student from "@/icons/Student";
 import Infinity from "@/icons/Infinity";
-import { Swiper, SwiperSlide } from "swiper/react";
 import './styles.scss';
-import CardLect from "@/components/CardLect";
 
 const itemsUser = [
     [
@@ -45,7 +44,7 @@ const Introduce = () => {
     const { scrollYProgress } = useScroll();
     return (
         <div className='introducePage max-w-screen-2xl m-auto'>
-            <motion.div className="progress-bar bg-[var(--base)]" style={{ scaleX: scrollYProgress }} > </motion.div>
+            <motion.div className="progress-bar bg-[var(--base)] max-w-screen-2xl m-auto z-50 left-[unset!important]" style={{ scaleX: scrollYProgress }} > </motion.div>
             <Header />
             <div className="banner p-[5.6rem]">
                 <div className="row flex items-center gap-[2.4rem]">
@@ -139,25 +138,7 @@ const Introduce = () => {
             </div>
             <div className="lectures px-[5.6rem]" id={AnchorHref['lects']}>
                 <h2 className="text-[2.8rem] font-bold text-[var(--base)] mb-[2.4rem]">{AnchorIntroducePageTitle.lects}</h2>
-                <Swiper
-                    spaceBetween={50}
-                    slidesPerView={3}
-                    onSlideChange={() => console.log('slide change')}
-                    onSwiper={(swiper) => console.log(swiper)}
-                >
-                    <SwiperSlide>
-                        <CardLect />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <CardLect />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <CardLect />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <CardLect />
-                    </SwiperSlide>
-                </Swiper>
+                <ListLect />
             </div>
         </div>
     )

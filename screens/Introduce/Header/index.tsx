@@ -25,11 +25,11 @@ const Header = () => {
     const router = useRouter();
 
     return (
-        <div className='headerIntroPage relative flex justify-between p-[5.6rem] pb-0 items-center bg-white'>
+        <div className='headerIntroPage flex justify-between p-[5.6rem] pb-0 items-center bg-white sticky top-0 z-10'>
             <div className="logo max-w-[18rem] z-10">
                 <img src="/mindx.png" alt="MindX Community" />
             </div>
-            <div className="flex-1">
+            <div className="flex-">
                 <Anchor
                     className='flex justify-center anchorHeader'
                     direction="horizontal"
