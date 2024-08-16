@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import ReduxProvider from "@/components/ReduxProvider";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import 'swiper/css';
 import "./globals.scss";
 
 const inter = Inter({ subsets: ["latin"] });

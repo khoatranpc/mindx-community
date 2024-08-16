@@ -2,13 +2,16 @@
 import { motion, useScroll } from "framer-motion";
 import Typewriter from 'typewriter-effect';
 import React from 'react';
-import Header from './Header';
+import { Avatar } from "antd";
+import Header, { AnchorHref, AnchorIntroducePageTitle } from './Header';
 import CallCenter from "@/icons/CallCenter";
 import Business from "@/icons/Business";
 import Programmer from "@/icons/Programmer";
 import Student from "@/icons/Student";
+import Infinity from "@/icons/Infinity";
+import { Swiper, SwiperSlide } from "swiper/react";
 import './styles.scss';
-import { Avatar } from "antd";
+import CardLect from "@/components/CardLect";
 
 const itemsUser = [
     [
@@ -70,9 +73,11 @@ const Introduce = () => {
                                 {itemsUser.map((colItems, colIndex) => (
                                     <div key={colIndex} className="col flex flex-col gap-[2rem]">
                                         {colItems.map((item, index) => (
-                                            <div key={index} className="item flex">
-                                                <item.icon className="w-[5rem] h-[5rem] fill-[var(--base)]" />
-                                                <div className="des ml-[1.2rem]">
+                                            <div key={index} className="item flex gap-[2rem]">
+                                                <span className="w-[5rem] h-[5rem]">
+                                                    <item.icon className="w-[5rem] h-[5rem] fill-[var(--base)]" />
+                                                </span>
+                                                <div className="des">
                                                     <span className="text-[1.4rem] font-medium">{item.title}</span>
                                                     <p className="content text-[1.2rem] max-w-[80%]">{item.description}</p>
                                                 </div>
@@ -96,9 +101,63 @@ const Introduce = () => {
                             <p className="text-[1.6rem] font-medium mt-[1.2rem]">400+ Người dùng</p>
                         </div>
                     </div>
-
                 </div>
-
+            </div>
+            <div className="targets px-[5.6rem] mb-[5.6rem]" id={AnchorHref['targets']}>
+                <h2 className="text-[2.8rem] font-bold text-[var(--base)] mb-[2.4rem]">{AnchorIntroducePageTitle.targets}</h2>
+                <div className="flex justify-between">
+                    <div className="flex">
+                        <div className="businesses">
+                            <p className="flex items-end gap-[1.2rem] mb-[1.2rem]">
+                                <span className="w-[3rem] h-[3rem] block" ><Business className="w-[3rem] h-[3rem] fill-[var(--base)]" /></span>
+                                <span className="text-[1.6rem] font-bold">Doanh nghiệp</span>
+                            </p>
+                            <ul className="list-disc pl-[4.2rem]">
+                                <li className="text-[1.6rem]">Truyền thông hình ảnh đối tác, xây dựng thương hiệu và gia tăng uy tín cá nhân</li>
+                                <li className="text-[1.6rem]">Kết nối ứng viên tiềm năng tới doanh nghiệp, mở rộng vốn tuyển dụng</li>
+                                <li className="text-[1.6rem]">Mở rộng network, kết nối cùng HR/ chuyên gia/ C-level trong lĩnh vực CNTT</li>
+                            </ul>
+                        </div>
+                        <div className="students"></div>
+                    </div>
+                    <Infinity className="w-[12rem] h-[12rem] self-center fill-[var(--base)]" />
+                    <div className="flex">
+                        <div className="businesses">
+                            <p className="flex items-end gap-[1.2rem] mb-[1.2rem]">
+                                <span className="w-[3rem] h-[3rem] block" ><Student className="w-[3rem] h-[3rem] fill-[var(--base)]" /></span>
+                                <span className="text-[1.6rem] font-bold">Học viên</span>
+                            </p>
+                            <ul className="list-disc pl-[4.2rem]">
+                                <li className="text-[1.6rem]">Nâng cao chất lượng nguồn nhân lực trẻ ngành IT nhằm đáp ứng tiêu chí tuyển dụng của thị trường</li>
+                                <li className="text-[1.6rem]">Có môi trường nâng cao năng lực ứng tuyển, tư vấn viết CV, phỏng vấn, ...</li>
+                                <li className="text-[1.6rem]">Kết nối ứng viên tiềm năng với các doanh nghiệp có nhu cầu tuyển dụng</li>
+                            </ul>
+                        </div>
+                        <div className="students"></div>
+                    </div>
+                </div>
+            </div>
+            <div className="lectures px-[5.6rem]" id={AnchorHref['lects']}>
+                <h2 className="text-[2.8rem] font-bold text-[var(--base)] mb-[2.4rem]">{AnchorIntroducePageTitle.lects}</h2>
+                <Swiper
+                    spaceBetween={50}
+                    slidesPerView={3}
+                    onSlideChange={() => console.log('slide change')}
+                    onSwiper={(swiper) => console.log(swiper)}
+                >
+                    <SwiperSlide>
+                        <CardLect />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <CardLect />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <CardLect />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <CardLect />
+                    </SwiperSlide>
+                </Swiper>
             </div>
         </div>
     )

@@ -1,0 +1,22 @@
+.headerIntroPage {
+    .anchorHeader {
+        &::before {
+            border: none !important;
+        }
+
+        .ant-anchor-link {
+            font-weight: bold !important;
+            font-size: 1.8rem;
+        }
+
+        .ant-anchor-link-active {
+            a {
+                color: var(--base) !important;
+            }
+        }
+
+        .ant-anchor-ink.ant-anchor-ink-visible {
+            background-color: var(--base) !important;
+        }
+    }
+}

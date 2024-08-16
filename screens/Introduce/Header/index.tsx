@@ -1,9 +1,25 @@
 'use client';
 import React from 'react';
-import { Button } from 'antd';
+import { Button, Anchor } from 'antd';
 import { useRouter } from 'next/navigation';
 import { LoginOutlined } from '@ant-design/icons';
 import './styles.scss';
+
+
+export const AnchorHref = {
+    targets: 'muc-tieu',
+    lects: 'giang-vien',
+    students: 'hoc-vien',
+    events: 'su-kien-offline'
+}
+export type AnchorIntroducePage = keyof typeof AnchorHref;
+
+export const AnchorIntroducePageTitle: Record<AnchorIntroducePage, string> = {
+    targets: 'Mục tiêu',
+    lects: 'Giảng viên',
+    students: 'Học viên',
+    events: 'Sự kiện'
+}
 
 const Header = () => {
     const router = useRouter();
@@ -12,6 +28,20 @@ const Header = () => {
         <div className='headerIntroPage relative flex justify-between p-[5.6rem] pb-0 items-center bg-white'>
             <div className="logo max-w-[18rem] z-10">
                 <img src="/mindx.png" alt="MindX Community" />
+            </div>
+            <div className="flex-1">
+                <Anchor
+                    className='flex justify-center anchorHeader'
+                    direction="horizontal"
+                    bounds={20}
+                    items={Object.keys(AnchorIntroducePageTitle).map(item => {
+                        return {
+                            key: item,
+                            title: AnchorIntroducePageTitle[item as AnchorIntroducePage],
+                            href: `#${AnchorHref[item as AnchorIntroducePage]}`
+                        }
+                    })}
+                />
             </div>
             <div className="authenticated">
                 <Button
