@@ -10,3 +10,8 @@ export enum Page {
     AdminLecture = 'AdminLecture',
     AdminCourses = 'AdminCourses'
 }
+export enum Role {
+    ADMIN = 'ADMIN',
+    MENTOR = 'MENTOR',
+    STUDENT = 'STUDENT'
+}

@@ -27,7 +27,7 @@ const PersonDropdown = () => {
                 menu={{ items }}
                 trigger={['click']}
             >
-                <Avatar src={getUser.image ? getUser.image : '/mindxavatar.webp'} />
+                <Avatar src={getUser?.image ? getUser.image : '/mindxavatar.webp'} />
             </Dropdown>
         </div>
     )

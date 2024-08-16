@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
+import { Role } from '@/global/enum';
 import { useUserInfo } from '@/utils/hooks';
 import MindXLoading from '../MindXLoading';
 import { queryUserInfo } from './query';
@@ -40,6 +41,12 @@ const AuthProtect = (props: Props) => {
             localStorage.removeItem('access_token');
             userInfo.clear?.();
             // missing check has refresh token
+        } else {
+            switch (userInfo.state.data?.getUser?.role as Role) {
+                case Role.ADMIN:
+                    router.replace('/mindx/admin');
+                    break;
+            }
         }
     }, [userInfo.state]);
 
