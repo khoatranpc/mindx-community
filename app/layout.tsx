@@ -5,6 +5,7 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import 'swiper/css';
 import 'react-vertical-timeline-component/style.min.css';
+import 'react-quill/dist/quill.snow.css';
 import "./globals.scss";
 
 const inter = Inter({ subsets: ["latin"] });

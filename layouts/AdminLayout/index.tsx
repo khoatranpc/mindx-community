@@ -2,7 +2,7 @@
 import React from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { Image, Layout, Menu, MenuProps, theme } from 'antd';
-import { CalendarOutlined, ContactsOutlined, HomeOutlined, OrderedListOutlined, SnippetsOutlined, TeamOutlined, UserAddOutlined } from '@ant-design/icons';
+import { BookOutlined, CalendarOutlined, ContactsOutlined, HomeOutlined, MailOutlined, OrderedListOutlined, SnippetsOutlined, TeamOutlined, UserAddOutlined } from '@ant-design/icons';
 import { routerByPage } from '@/global/routers';
 import { Page } from '@/global/enum';
 import HeaderAdminLayout from './HeaderLayout';
@@ -49,6 +49,16 @@ const items: MenuProps['items'] = [
     {
         key: 'Calenar',
         label: <p><CalendarOutlined /> <span>Sự kiện</span></p>
+    },
+    {
+        key: "AdminMails",
+        label: <p><MailOutlined /> <span>Mail</span></p>,
+        children: [
+            {
+                key: Page.AdminMailsTemplate,
+                label: <p><BookOutlined /> <span>Mẫu mail</span></p>
+            }
+        ]
     },
 ];
 
