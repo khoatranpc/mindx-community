@@ -33,7 +33,7 @@ const items: MenuProps['items'] = [
         ]
     },
     {
-        key: 'AdminLecture',
+        key: 'AdminLectureP',
         label: <p><TeamOutlined /> <span>Giảng viên</span></p>,
         children: [
             {

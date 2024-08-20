@@ -1,9 +1,15 @@
+'use client';
 import React from 'react';
 import { Button } from 'antd';
 import { PlusCircleOutlined } from '@ant-design/icons';
-import MailDetail from '@/components/MailDetail';
+import { useMailTemplate } from '@/utils/hooks';
+import MailForm from '@/components/MailForm';
+import List from './List';
+import './styles.scss';
 
 const Mails = () => {
+    const mailTemplate = useMailTemplate();
+
     return (
         <div className='mailTemplates flex gap-[2.4rem]'>
             <div className='flex-[0.3] min-w-[24rem] border-r-[1px] border-solid border-[#eedbdb] pr-[2.4rem]'>
@@ -11,12 +17,11 @@ const Mails = () => {
                     <span><b>Danh sách mẫu mail</b></span>
                     <Button size='small'><PlusCircleOutlined className='text-[var(--base)]' /></Button>
                 </div>
-                <div className="listMail">
-                    ahih
-                </div>
+                <hr className='mt-[1.2rem]' />
+                <List mailTemplate={mailTemplate} />
             </div>
             <div className='contentMailDetail flex-1'>
-                <MailDetail />
+                <MailForm mailTemplate={mailTemplate} />
             </div>
         </div>
     )
