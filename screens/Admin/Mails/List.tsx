@@ -24,7 +24,7 @@ const List = (props: Props) => {
                         router.replace(`/mindx/admin/mails/templates?mailId=${item._id as string}`);
                     }}
                 >
-                    <span>{item.title as string}</span>
+                    <span className='block max-w-[80%]'>{item.title as string}</span>
                     <FingerPointer className={`w-[2rem] h-[2rem] iconFinger fill-[var(--base)] ${getMailId === item._id ? 'active' : ''}`} />
                 </li>
             })}

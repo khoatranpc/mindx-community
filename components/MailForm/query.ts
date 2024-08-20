@@ -12,6 +12,16 @@ const queryGetOneMailTemplate = (id: string) => {
     `
 };
 
+const querySaveMailTemplate = `
+mutation FindMailTemplateByIdAndUpdate($dataInput: FindMailTemplateByIdAndUpdate!){
+    findMailTemplateByIdAndUpdate(updateMailTemplate: $dataInput) {
+        _id
+    }
+}
+
+`
+
 export {
-    queryGetOneMailTemplate
+    queryGetOneMailTemplate,
+    querySaveMailTemplate
 };
