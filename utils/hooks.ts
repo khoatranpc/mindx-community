@@ -6,6 +6,7 @@ import { AppDispatch, RootState } from "@/store";
 import { changeTheme } from "@/store/reducer/theme/theme.reducer";
 import { Query } from "@/global/interface";
 import { Theme } from "@/global/enum";
+import { clearMailTemplate, queryMailTemplate } from "@/store/reducer/mailTemplate.reducer";
 
 const useAuthLogin = createHookRedux('authLoginReducer', {
     post: queryAuthLogin
@@ -26,8 +27,14 @@ const useTheme = () => {
         change
     }
 }
+
+const useMailTemplate = createHookRedux('mailTemplate', {
+    post: queryMailTemplate
+}, clearMailTemplate);
+
 export {
     useAuthLogin,
     useUserInfo,
-    useTheme
+    useTheme,
+    useMailTemplate
 }
