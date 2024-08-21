@@ -1,15 +1,16 @@
 'use client';
-import React, { memo, useEffect, useRef, useState } from 'react';
+import React, { memo, useEffect, useRef } from 'react';
 import { InfoCircleOutlined, PinterestOutlined } from '@ant-design/icons';
 import { useSearchParams } from 'next/navigation';
 import { useFormik } from 'formik';
 import { Button, Input } from 'antd';
-import ReactQuill from 'react-quill';
+import { toast } from 'react-toastify';
+import { Obj } from '@/global/interface';
+
 import { HookRedux, uuid } from '@/utils';
 import { useMailTemplate } from '@/utils/hooks';
-import { Obj } from '@/global/interface';
+import ComposingMail from '../ComposingMail';
 import { queryGetOneMailTemplate, querySaveMailTemplate } from './query';
-import { toast } from 'react-toastify';
 
 interface Props {
     isCreate?: boolean;
@@ -68,15 +69,14 @@ const MailDetail = (props: Props) => {
             <div className='titleMail mb-[1.2rem]'>
                 <Input size='small' placeholder='Tiêu đều email!' value={values.title} name='title' onChange={handleChange} />
             </div>
-            <ReactQuill
-                theme="snow"
+            <ComposingMail
                 value={values.html}
                 onChange={(value) => {
                     setFieldValue('html', value);
                 }}
             />
             <div className='flex justify-end mt-[1.2rem]'>
-                <Button className='' size='small' onClick={() => handleSubmit()}>Lưu</Button>
+                <Button className='' size='small' loading={saveMailTemplate.state.isLoading} disabled={saveMailTemplate.state.isLoading} onClick={() => handleSubmit()}>Lưu</Button>
             </div>
         </div>
         <div className="contentInstruction max-w-[24rem] shadow-xl p-[2.4rem] relative">
