@@ -5,6 +5,8 @@ import React from 'react';
 import { Avatar } from "antd";
 import Header, { AnchorHref, AnchorIntroducePageTitle } from './Header';
 import ListLect from "./ListLect";
+import Students from "./Students/index"
+import Events from "./Events"
 import CallCenter from "@/icons/CallCenter";
 import Business from "@/icons/Business";
 import Programmer from "@/icons/Programmer";
@@ -142,7 +144,11 @@ const Introduce = () => {
             </div>
             <div className="events px-[5.6rem]" id={AnchorHref['events']}>
                 <h2 className="text-[2.8rem] font-bold text-[var(--base)] mb-[2.4rem]">{AnchorIntroducePageTitle.events}</h2>
-              
+                <Events/>
+            </div>
+            <div className="events px-[5.6rem]" id={AnchorHref['students']}>
+                <h2 className="text-[2.8rem] font-bold text-[var(--base)] mb-[2.4rem]">{AnchorIntroducePageTitle.students}</h2>
+                <Students/>
             </div>
         </div>
     )
