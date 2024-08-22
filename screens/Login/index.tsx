@@ -9,6 +9,7 @@ import { useAuthLogin } from '@/utils/hooks';
 import { queryLogin } from './query';
 import MindXLoading from '@/components/MindXLoading';
 import './styles.scss';
+import Link from 'next/link';
 
 const Login = () => {
     const authLogin = useAuthLogin();
@@ -48,6 +49,10 @@ const Login = () => {
             router.push('/mindx');
         }
     }, [authLogin.state])
+    // dung de chuyen trang
+    const handleForgotPasswordClick = () => {
+    router.push(`/auth/forget?email=${values.email}`);
+};
     return (
         <div className="formLogin m-auto">
             <h3 className={`text-[2.6rem] font-bold mb-[2.6rem]`}>Đăng nhập</h3>
@@ -79,7 +84,10 @@ const Login = () => {
                         <Checkbox checked={values.remember} onClick={() => {
                             setFieldValue('remember', !values.remember);
                         }}>Nhớ tôi</Checkbox>
-                        <p className='cursor-pointer'>Quên mật khẩu?</p>
+                        <p className='cursor-pointer' onClick={handleForgotPasswordClick}>Quên mật khẩu?</p>
+
+           
+                        {/* <p className='cursor-pointer'>Quên mật khẩu?</p> */}
                     </div>
                 </Form.Item>
                 <Form.Item>
