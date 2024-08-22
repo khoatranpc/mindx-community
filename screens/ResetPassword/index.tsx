@@ -7,18 +7,19 @@ import type { GetProps } from 'antd';
 import { useRouter } from 'next/navigation';
 type OTPProps = GetProps<typeof Input.OTP>;
 
-const index = () => {
+const ResetPassword = () => {
   // const [otp, setOtp] = useState('')
   const [email, setEmail] = useState('')
   const [newPass, setNewPass] = useState('')
   const [confirmPass, setConfirmPass] = useState('')
-  const router = useRouter()
 
-   const onChangeOTP: OTPProps['onChange'] = (text) => {
-    console.log('onChangeOTP:', text);
+
+  const onChange: OTPProps['onChange'] = (text: string) => {
+  
+    console.log('otp:', text);
   };
  const sharedProps: OTPProps = {
-    onChangeOTP,
+    onChange,
   };
 
   const handleOnClick = () => {
@@ -40,15 +41,15 @@ const index = () => {
       })
     }
     else {
-        notification.success({
-        message: 'Hoàn thành',
-        description: 'Bạn đã cập nhật mật khẩu thành công',
-          placement: 'topRight',
-        duration:4,
-        showProgress:true
-        })
+        // notification.success({
+        // message: 'Hoàn thành',
+        // description: 'Bạn đã cập nhật mật khẩu thành công',
+        //   placement: 'topRight',
+        // duration:4,
+        // showProgress:true
+        // })
       // router.push(`/auth/login`);
-      
+      onChange
       console.log('email: ', email);
       console.log('newPass: ', newPass);
       console.log('confirmPass: ', confirmPass);
@@ -63,7 +64,7 @@ const index = () => {
       {/* nhap otp */}
         <Form.Item className='otp-container'>
           <h4 className={'text-[2.6rem] font-bold mb-[2.8rem] mr-4'}>OTP CODE</h4>
-          <Flex gap="middle" align="flex-start" vertical>
+          <Flex gap="middle"  vertical>
              <Input.OTP formatter={(str) => str.toUpperCase()} {...sharedProps} />
          </Flex>
     </Form.Item>
@@ -106,4 +107,4 @@ const index = () => {
   )
 }
 
-export default index
+export default ResetPassword

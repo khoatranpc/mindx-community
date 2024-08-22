@@ -9,7 +9,7 @@ import { useAuthLogin } from '@/utils/hooks';
 import { queryLogin } from './query';
 import MindXLoading from '@/components/MindXLoading';
 import './styles.scss';
-import Link from 'next/link';
+
 
 const Login = () => {
     const authLogin = useAuthLogin();
@@ -51,7 +51,7 @@ const Login = () => {
     }, [authLogin.state])
     // dung de chuyen trang
     const handleForgotPasswordClick = () => {
-    router.push(`/auth/forget?email=${values.email}`);
+    router.push(`/auth/forget`);
 };
     return (
         <div className="formLogin m-auto">

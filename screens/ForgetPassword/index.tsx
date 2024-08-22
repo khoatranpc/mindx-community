@@ -1,30 +1,43 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Form, Input, Button } from 'antd';
-import Alert from '@/components/Alert';
-import Loading from '@/components/Loading';
+import { Form, Input, Button ,notification} from 'antd';
+
+import MindXLoading from '@/components/MindXLoading';
 const ForgetPassword = () => {
     const router = useRouter()
     const [email, setEmail] = useState('')
-    const [showAlert,setShowAlert] = useState(false)
-    const [loading,setLoading] = useState(false)
-    const handleChange = (event) => {
+
+    const handleChange = (event:any) => {
         setEmail(event.target.value)
+        
     }
     const handleClick = () => {
-        console.log(email)
-        setLoading(true)
-        setTimeout(() => {
-            // console.log(email)
-            setLoading(false)
-            setShowAlert(true)
-        },2000)
+        if (!email) {
+            notification.error({
+                message:'Bạn chưa nhập email, vui lòng nhập email của bạn!'
+            })
+        }
+        else {  
+            console.log(email)
+            {<MindXLoading/>}
+            setTimeout(() => {
+                {<MindXLoading/>}
+                
+            notification.success({
+            message: 'Hoàn thành',
+            description: 'Mã OTP đã được gửi thành công vui lòng kiểm tra email của bạn!',
+              placement: 'topRight',
+            duration:4,
+            showProgress:true
+            })
+            router.push(`/auth/reset`); 
+            }, 3000)
+        }
+        
     }
-    const handleResetPass = () => {
-        router.push(`/auth/reset`);
-    }
+
     return (
         <div className="forgetPass m-auto" >
             <h3 className={`text-[2.6rem] font-bold mb-[2.8rem] `}> Quên mật khẩu</h3>
@@ -34,19 +47,17 @@ const ForgetPassword = () => {
                     name='email'
                     rules={[{ required: true, message: 'Bạn cần nhập Email!', type: 'email' }]}
                 >
-                    <Input placeholder='nhập email để lấy lại mật khẩu'
+                    <Input placeholder='Nhập email để lấy lại mật khẩu'
                     onChange={handleChange} value={email}
                     />
                 </Form.Item>
                 <Form.Item>
-                    <Button type='primary' htmlType='submit' className='w-full font-bold' onClick={handleClick}>Lấy lại mật khẩu</Button>
-                    <Button type='primary' className='w-full mt-[2rem] font-bold' onClick={handleResetPass}>Reset password</Button>
+                    <Button type='primary' htmlType='submit' className='w-full font-bold' onClick={handleClick}
+                    
+                    >Lấy lại mật khẩu</Button>
+            
                 </Form.Item>
             </Form>
-            {loading && <Loading/>}
-            {showAlert && (
-                <Alert/>
-            )}
         </div>
     );
 };
