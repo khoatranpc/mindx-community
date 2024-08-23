@@ -1,6 +1,5 @@
-import React from 'react';
 import { LazyImport } from '@/utils/dynamicImport';
 
-const Login = LazyImport('SCREENS', 'Register');
+const Register = LazyImport('SCREENS', 'Register');
 
-export default Login;
+export default Register;
