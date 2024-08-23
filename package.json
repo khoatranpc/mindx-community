@@ -25,6 +25,7 @@
     "react-toastify": "^10.0.5",
     "react-vertical-timeline-component": "^3.6.0",
     "sass": "^1.77.8",
+    "suneditor-react": "^3.6.1",
     "swiper": "^11.1.9",
     "typewriter-effect": "^2.21.0",
     "uuid": "^10.0.0",
