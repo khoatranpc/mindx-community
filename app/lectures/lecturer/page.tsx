@@ -176,7 +176,7 @@ const Lecturer = (props: String) => {
           <div className="pic-frame">
             <img src="https://picsum.photos/407/487" alt="" className="teacher-img" width={407} height={487}/>
             <div className="frame-top">
-              <div className="red-box-top"></div>
+              <div className="red-box-top w-40 h-24"></div>
               <div className="blank-box-top"></div>
             </div>
             <div className="frame-bot">
