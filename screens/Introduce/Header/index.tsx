@@ -9,7 +9,6 @@ import './styles.scss';
 export const AnchorHref = {
     targets: 'muc-tieu',
     lects: 'giang-vien',
-    students: 'hoc-vien',
     events: 'su-kien-offline'
 }
 export type AnchorIntroducePage = keyof typeof AnchorHref;
@@ -17,7 +16,6 @@ export type AnchorIntroducePage = keyof typeof AnchorHref;
 export const AnchorIntroducePageTitle: Record<AnchorIntroducePage, string> = {
     targets: 'Mục tiêu',
     lects: 'Giảng viên',
-    students: 'Học viên',
     events: 'Sự kiện'
 }
 
@@ -41,6 +39,7 @@ const Header = () => {
                             href: `#${AnchorHref[item as AnchorIntroducePage]}`
                         }
                     })}
+                    targetOffset={150}
                 />
             </div>
             <div className="authenticated">
