@@ -33,6 +33,7 @@ const ItemList = (props: ItemProps) => {
             <p className='des'>
                 Có 10 năm kinh nghiệm trong ngành lập trình phần mềm, đã có chứng chỉ nghiệp vụ sư phạm đạt xuất sắc
             </p>
+            <button className='moreButton'>Xem thêm</button>
         </div>
     </VerticalTimelineElement>
 }
