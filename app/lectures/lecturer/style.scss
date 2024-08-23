@@ -3,14 +3,14 @@
   .pf-banner {
     display: flex;
     margin-top: 100px;
-    gap: 60px;
+    gap: 7rem;
     // border-bottom: 1px solid black;
     .left {
       position: relative;
-      margin-top: 100px;
+      margin-top: 10rem;
       .pr-introduce {
         font-weight: bold;
-        width: 511px;
+        width: 51rem;
       }
       .redtext {
         color: #bb0409;
@@ -21,57 +21,59 @@
       }
       .pr-discription {
         margin-top: 32px;
-        width: 411px;
+        width: 41rem;
       }
       .full-red-box {
-        margin-top: 50px;
-        width: 404px;
-        height: 84px;
+        margin-top: 5rem;
+        width: 40rem;
+        height: auto;
         background-color: #bb0409;
         border: 1px solid white;
+        h1 {
+          color: white;
+        }
       }
     }
     .right {
       position: relative;
       z-index: 10;
       .up-highlight {
-        top: -30px;
-        left: -44px;
+        top: -3rem;
+        left: -4.5rem;
         z-index: 5;
         position: absolute;
         .wrapper {
-          width: 362px;
-          height: 451px;
+          width: 36rem;
+          height: 45rem;
           border: 3px solid #bb0409;
           border-radius: 20px;
           z-index: 0;
           position: relative;
         }
         .blankbox {
-          width: 56px;
-          height: 56px;
+          width: 5.6rem;
+          height: 5.6rem;
           position: absolute;
           // border: 3px solid black;
-          top: -23px;
-          left: -23px;
+          top: -2.3rem;
+          left: -2.3rem;
           background-color: white;
           z-index: 1;
         }
         .CoLogo {
           position: absolute;
-          top: -23px;
-          left: -17px;
+          top: -2.3rem;
+          left: -1.7rem;
           z-index: 2;
         }
       }
       .down-highlight {
-        width: 362px;
-        height: 451px;
-        right: -72px;
-        bottom: -49px;
+        width: 36rem;
+        height: 45rem;
+        right: -7.2rem;
+        bottom: -5rem;
         border: 3px solid #bb0409;
         border-radius: 20px;
-        z-index: 0;
         position: absolute;
         z-index: 5;
       }
@@ -79,6 +81,9 @@
         position: relative;
         z-index: 6;
         border-radius: 20px;
+        width: 36rem;
+        height: 45rem;
+        background-size: cover;
       }
       .avatar-rating {
         position: absolute;
@@ -88,17 +93,19 @@
         .avatar {
           border-radius: 100%;
           z-index: 1;
-          // position: relative;
+          width: 15rem;
+          height: 15rem;
+          background-size: cover;
         }
         .rating {
           position: absolute;
           z-index: 2;
-          left: 90px;
-          bottom: -5px;
+          left: 9rem;
+          bottom: -0.5rem;
           .rating-score {
             font-size: 16px;
-            width: 41px;
-            height: 41px;
+            width: 4rem;
+            height: 4rem;
             border-radius: 100%;
             border: 1px solid rgba(255, 255, 255, 0.5);
             background-color: #bb0409;
@@ -110,18 +117,18 @@
             position: relative;
           }
           .rating-star {
-            width: 103px;
-            height: 25px;
+            width: 10.3rem;
+            height: 2.5rem;
             border-radius: 15px;
             border: 1px solid #bb0409;
             display: flex;
             align-items: center;
             justify-content: center;
             position: absolute;
-            top: 7px;
+            top: 0.7rem;
             z-index: 0;
             background-color: white;
-            left: 20px;
+            left: 2rem;
           }
         }
       }
@@ -144,15 +151,14 @@
       position: absolute;
       width: 100%;
       background-color: black;
-      opacity: 50%;
+      opacity: 0.8;
       height: 24rem;
     }
     .achivement-pf {
       position: relative;
       z-index: 2;
       color: white;
-      font-size: 26px;
-      width: 1024px;
+      width: 102.4rem;
       .pf-list {
         width: 100%;
         list-style: outside none none;
@@ -166,77 +172,138 @@
           .item {
             span {
               display: block;
-              width: 167px;
               font-weight: bold;
               width: 100%;
             }
             .num::after {
               content: "";
               background: #bb0409;
-              width: 109px;
-              height: 3px;
+              width: 10.9rem;
+              height: 0.3rem;
               display: block;
-              margin: 13px auto;
+              margin: 1.3rem auto;
             }
           }
         }
       }
     }
   }
-  .main{
+  .main {
     width: 100%;
-    .wrapper{
+    .wrapper {
+      display: flex;
+      box-shadow: #bb0409 0px 4px 4px 0px;
+      width: 105rem;
+      z-index: 100;
+      position: relative;
+      .picground {
+        width: 44rem;
+        height: 53rem;
+        background-size: cover;
+      }
+      .lbl {
+        z-index: 5;
+        width: 28rem;
+        height: 5rem;
+        color: white;
+        background-color: #bb0409;
         display: flex;
-        box-shadow: #bb0409 0px 4px 4px 0px;
-        width: 120rem;
-        z-index: 100;
-        position: relative;
-        .teacher-avatar{
-            z-index: 1;
-        }
-        .lbl{
-            z-index: 5;
-            width: 37rem;height: 66px;
-            color: white;
-            font-size: 26px;
-            font-weight:  bold;
-            background-color: #bb0409;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        left: 39.6rem;
+        top: 5rem;
+      }
+      .details {
+        z-index: 1;
+        color: black;
+        .row-a {
+          width: 50rem;
+          border-bottom: 5px solid #bb0409;
+          .field {
             display: flex;
-            justify-content: center;
             align-items: center;
-            position: absolute;
-            left: 416px;
-            top: 80px;
+          }
         }
-        .details{
-            z-index: 1;
-            color: black;
-            .row-a{
-                width: 60rem;
-                border-bottom: 5px solid #bb0409;
-                .field{
-                    display: flex;
-                    align-items:  center;
-                }
-            }
-        }
+      }
     }
   }
-  .pf-story{
+  .pf-story {
     width: 100%;
-    background-color: #ECECEC;
-    padding: 49px 0 70px;
-    .story-wrapper{
+    background-color: #ececec;
+    padding: 39px 0 50px;
+    height: 57rem;
+    .story-wrapper {
+      // border: 1px solid black;
       width: 120rem;
       margin: auto;
-      .story-title{
+      .story-title {
         color: #bb0409 !important;
       }
-      .pic-frame{
-        .frame-top{
-            .red-box-top{
-              background-color: #bb0409;
+      .main {
+        width: 83%;
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: end;
+        .pic-frame {
+          position: absolute;
+          left: 2rem;
+          top: 4rem;
+          display: flex;
+          height: 40rem;
+          width: 32rem;
+          background-size: cover;
+          border-radius: 20px;
+        }
+        .pf-content {
+          width: 70.5rem;
+          height: 36rem;
+          border: 5px solid #bb0409;
+          background-color: white;
+          display: flex;
+          justify-content: start;
+          flex-direction: column;
+          .text {
+            width: 55rem;
+            h1 {
+              color: #bb0409;
             }
+          }
+        }
+      }
+    }
+  }
+  .pf-feedback {
+    .wrapper {
+      .header {
+        .feedback-title {
+          color: #bb0409;
+        }
+        .line {
+          .left {
+            width: 16rem;
+            border: 2px solid #bb0409;
+          }
+          .right {
+            width: 16rem;
+            border: 2px solid #bb0409;
+          }
+        }
+      }
+      .student-feedback {
+        width: 85rem;
+        .body{
+          .line {
+            .left {
+              width: 9rem;
+              border: 2px solid #bb0409;
+            }
+            .right {
+              width: 9rem;
+              border: 2px solid #bb0409;
+            }
+          }
         }
       }
     }
