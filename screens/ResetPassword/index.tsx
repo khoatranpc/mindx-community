@@ -40,23 +40,25 @@ const ResetPassword = () => {
          duration:4,
         showProgress:true
        });
-      
+      return
     }
     if (newPass !== confirmPass) {
       notification.error({
         message: 'Thông báo',
         description: 'Mật khẩu nhập lại không khớp vui lòng nhập lại!',
-        placement:'topRight'
+        placement: 'topRight',
+        duration: 4,
+        showProgress:true
       })
+      return
     }
-    else {
       router.push(`/auth/login`);
       // in ra thong tin
       console.log('otp: ',otp)
       console.log('email: ', email);
       console.log('newPass: ', newPass);
       console.log('confirmPass: ', confirmPass);
-    }
+    
     
   }
 

@@ -34,6 +34,7 @@ const ForgetPassword = () => {
             duration:4,
             showProgress:true
             })
+            return 
         }
         else {  
             console.log(email)
