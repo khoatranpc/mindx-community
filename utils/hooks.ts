@@ -6,6 +6,8 @@ import { AppDispatch, RootState } from "@/store";
 import { changeTheme } from "@/store/reducer/theme/theme.reducer";
 import { Query } from "@/global/interface";
 import { Theme } from "@/global/enum";
+import { clearMailTemplate, queryMailTemplate } from "@/store/reducer/mailTemplate.reducer";
+import { clearGetOTPRSP, queryGetOTPRSP } from "@/store/reducer/auth/getOtpResetPassword.reducer";
 
 const useAuthLogin = createHookRedux('authLoginReducer', {
     post: queryAuthLogin
@@ -26,11 +28,20 @@ const useTheme = () => {
         change
     }
 }
+
+const useMailTemplate = createHookRedux('mailTemplate', {
+    post: queryMailTemplate
+}, clearMailTemplate);
+
+
+const useGetOTPRSP = createHookRedux('getOtpResetPassword', {
+    post: queryGetOTPRSP
+}, clearGetOTPRSP);
+
 export {
     useAuthLogin,
     useUserInfo,
-    useTheme
+    useTheme,
+    useMailTemplate,
+    useGetOTPRSP
 }
-export function useMailTemplate() {
-
-  }
