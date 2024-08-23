@@ -19,7 +19,7 @@ export function CoLogo() {
 //         <Image src={"/achievement-banner.png"} className="achiveBanner" alt="" width={1440} height={363}/>
 //     )
 // }
-const Lecturer = (props: any) => {
+const Lecturer = (props: String) => {
   return (
     <div className="teacher-pf">
       <div className="pf-banner w-fit m-auto">
@@ -139,8 +139,8 @@ const Lecturer = (props: any) => {
             </div>
       </div>
       <div className="pf-story mt-9">
-          <div className="wrapper">
-            <h1 className="story-title w-fit text-4xl my-auto">Đôi điều về giảng viên</h1>
+          <div className="story-wrapper">
+            <h1 className="story-title w-fit text-4xl my-auto font-bold">Đôi điều về giảng viên</h1>
             <div className="pic-frame">
               <img src="" alt="" className="teacher-img" />
               <div className="frame-top"></div>

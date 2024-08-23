@@ -132,14 +132,11 @@ const Introduce = () => {
                 400+ Người dùng
               </p>
             </div>
-<<<<<<< HEAD
-          </div>
-=======
             <div className="events px-[5.6rem]" id={AnchorHref['events']}>
                 <h2 className="text-[2.8rem] font-bold text-[var(--base)] mb-[2.4rem]">{AnchorIntroducePageTitle.events}</h2>
               
             </div>
->>>>>>> 8bb0dbe22b6fec2e657e26120a3f70795f2d305e
+          </div>
         </div>
       </div>
       <div
