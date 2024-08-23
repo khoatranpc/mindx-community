@@ -9,14 +9,16 @@ import './styles.scss';
 export const AnchorHref = {
     targets: 'muc-tieu',
     lects: 'giang-vien',
-    events: 'su-kien-offline'
+    events: 'su-kien-offline',
+    students: 'hoc-vien'
 }
 export type AnchorIntroducePage = keyof typeof AnchorHref;
 
 export const AnchorIntroducePageTitle: Record<AnchorIntroducePage, string> = {
     targets: 'Mục tiêu',
     lects: 'Giảng viên',
-    events: 'Sự kiện'
+    events: 'Sự kiện',
+    students: 'Học viên'
 }
 
 const Header = () => {

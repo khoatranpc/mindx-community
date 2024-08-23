@@ -86,67 +86,105 @@ const Lecturer = (props: String) => {
         </div>
       </div>
       <div className="main">
-            <div className="wrapper m-auto">
-                <img src="https://picsum.photos/493/633" alt="" className="teacher-avatar" />
-                <div className="lbl"><h3>THÔNG TIN GIẢNG VIÊN</h3></div>
-                <div className="details ml-20 mt-72">
-                    <div className="row-a pb-6 mt-5">
-                        <div className="field ml-7">
-                            <div className="iconLeft"><UserOutlined style={{color:"#bb0409",fontSize: "4.6rem"}}/></div>
-                            <div className="text text-3xl ml-4">
-                                <strong>Họ và tên:</strong>
-                                <div className="mt-2 small text-3xl">Nguyễn Văn A</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row-a pb-6 mt-5">
-                        <div className="field ml-7">
-                            <div className="iconLeft"><EnvironmentFilled style={{color:"#bb0409", fontSize: "4.6rem"}}/></div>
-                            <div className="text text-3xl ml-4">
-                                <strong>Nơi công tác: </strong>
-                                <div className="mt-2 small text-3xl">MindX Hà Nội</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row-a pb-6 mt-5">
-                        <div className="field ml-7">
-                            <div className="iconLeft"><BookOutlined style={{color:"#bb0409",fontSize: "4.6rem"}}/></div>
-                            <div className="text text-3xl ml-4">
-                                <strong>Trình độ học vấn: </strong>
-                                <div className="mt-2 small text-3xl">Thạc sĩ</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row-a pb-6 mt-5">
-                        <div className="field ml-7">
-                            <div className="iconLeft"><ReadFilled style={{color:"#bb0409", fontSize: "4.6rem"}}/></div>
-                            <div className="text text-3xl ml-4">
-                                <strong>Môn dạy: </strong>
-                                <div className="mt-2 small text-3xl">Lập trình Fullstack, Python, Java,...</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row-a pb-6 mt-5">
-                        <div className="field ml-7">
-                            <div className="iconLeft"><FacebookOutlined style={{color:"#bb0409",fontSize: "4.6rem"}}/></div>
-                            <div className="text text-3xl ml-4">
-                                <strong>Trang cá nhân: </strong>
-                                <div className="mt-2 small text-3xl">Lập trình Fullstack, Python, Java,...</div>
-                            </div>
-                        </div>
-                    </div>
+        <div className="wrapper m-auto">
+          <img
+            src="https://picsum.photos/493/633"
+            alt=""
+            className="teacher-avatar"
+          />
+          <div className="lbl">
+            <h3>THÔNG TIN GIẢNG VIÊN</h3>
+          </div>
+          <div className="details ml-20 mt-72">
+            <div className="row-a pb-6 mt-5">
+              <div className="field ml-7">
+                <div className="iconLeft">
+                  <UserOutlined
+                    style={{ color: "#bb0409", fontSize: "4.6rem" }}
+                  />
                 </div>
+                <div className="text text-3xl ml-4">
+                  <strong>Họ và tên:</strong>
+                  <div className="mt-2 small text-3xl">Nguyễn Văn A</div>
+                </div>
+              </div>
             </div>
-      </div>
-      <div className="pf-story mt-9">
-          <div className="story-wrapper">
-            <h1 className="story-title w-fit text-4xl my-auto font-bold">Đôi điều về giảng viên</h1>
-            <div className="pic-frame">
-              <img src="" alt="" className="teacher-img" />
-              <div className="frame-top"></div>
-              <div className="frame-bot"></div>
+            <div className="row-a pb-6 mt-5">
+              <div className="field ml-7">
+                <div className="iconLeft">
+                  <EnvironmentFilled
+                    style={{ color: "#bb0409", fontSize: "4.6rem" }}
+                  />
+                </div>
+                <div className="text text-3xl ml-4">
+                  <strong>Nơi công tác: </strong>
+                  <div className="mt-2 small text-3xl">MindX Hà Nội</div>
+                </div>
+              </div>
+            </div>
+            <div className="row-a pb-6 mt-5">
+              <div className="field ml-7">
+                <div className="iconLeft">
+                  <BookOutlined
+                    style={{ color: "#bb0409", fontSize: "4.6rem" }}
+                  />
+                </div>
+                <div className="text text-3xl ml-4">
+                  <strong>Trình độ học vấn: </strong>
+                  <div className="mt-2 small text-3xl">Thạc sĩ</div>
+                </div>
+              </div>
+            </div>
+            <div className="row-a pb-6 mt-5">
+              <div className="field ml-7">
+                <div className="iconLeft">
+                  <ReadFilled
+                    style={{ color: "#bb0409", fontSize: "4.6rem" }}
+                  />
+                </div>
+                <div className="text text-3xl ml-4">
+                  <strong>Môn dạy: </strong>
+                  <div className="mt-2 small text-3xl">
+                    Lập trình Fullstack, Python, Java,...
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="row-a pb-6 mt-5">
+              <div className="field ml-7">
+                <div className="iconLeft">
+                  <FacebookOutlined
+                    style={{ color: "#bb0409", fontSize: "4.6rem" }}
+                  />
+                </div>
+                <div className="text text-3xl ml-4">
+                  <strong>Trang cá nhân: </strong>
+                  <div className="mt-2 small text-3xl">
+                    Lập trình Fullstack, Python, Java,...
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="pf-story mt-9">
+        <div className="story-wrapper">
+          <h1 className="story-title w-fit text-4xl m-auto font-bold">
+            Đôi điều về giảng viên
+          </h1>
+          <div className="pic-frame">
+            <img src="https://picsum.photos/407/487" alt="" className="teacher-img" width={407} height={487}/>
+            <div className="frame-top">
+              <div className="red-box-top"></div>
+              <div className="blank-box-top"></div>
+            </div>
+            <div className="frame-bot">
+              <div className="red-box-bot"></div>
+              <div className="blank-box-bot"></div>
+            </div>
+          </div>
+        </div>
       </div>
       <div className="pf-feedback"></div>
     </div>

@@ -222,7 +222,7 @@
         }
     }
   }
-  .pf-follow{
+  .pf-story{
     width: 100%;
     background-color: #ECECEC;
     padding: 49px 0 70px;
@@ -230,7 +230,12 @@
       width: 120rem;
       margin: auto;
       .story-title{
-        color: #bb0409 ;
+        color: #bb0409 !important;
+      }
+      .pic-frame{
+        .frame-top{
+
+        }
       }
     }
   }

@@ -8,8 +8,7 @@ export enum Page {
     AdminWaiting = 'AdminWaiting',
     AdminEvent = 'AdminEvent',
     AdminLecture = 'AdminLecture',
-    AdminCourses = 'AdminCourses',
-    AdminMailsTemplate = 'AdminMailsTemplate'
+    AdminCourses = 'AdminCourses'
 }
 export enum Role {
     ADMIN = 'ADMIN',
