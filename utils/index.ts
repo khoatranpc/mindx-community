@@ -39,6 +39,7 @@ const createHookRedux = (key: keyof RootState, queryMethodFnc?: MethodQuery, cle
         }
     }
 }
+export type HookRedux = ReturnType<ReturnType<typeof createHookRedux>>;
 const uuid = () => {
     return randomUuid();
 }

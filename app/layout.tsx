@@ -5,6 +5,10 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import 'swiper/css';
 import 'react-vertical-timeline-component/style.min.css';
+import 'react-quill/dist/quill.snow.css';
+import 'froala-editor/css/froala_style.min.css';
+import 'froala-editor/css/froala_editor.pkgd.min.css';
+import 'suneditor/dist/css/suneditor.min.css';
 import "./globals.scss";
 
 const inter = Inter({ subsets: ["latin"] });

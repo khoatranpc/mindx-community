@@ -1,0 +1,18 @@
+.mailTemplates {
+
+    .itemMailTemplate {
+        .iconFinger {
+            display: none;
+
+            &.active {
+                display: block;
+            }
+        }
+
+        &:hover {
+            .iconFinger {
+                display: block;
+            }
+        }
+    }
+}
