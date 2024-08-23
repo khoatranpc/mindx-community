@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Form, Input, Button } from 'antd';
-import Alert from '@/components/Alert';
+
 import { useGetOTPRSP } from '@/utils/hooks';
 import { queryGetOTP } from './query';
 import { toast } from 'react-toastify';
@@ -27,8 +27,8 @@ const ForgetPassword = () => {
             }
         });
     }
-    const handleResetPass = () => {
-        router.push(`/auth/reset`);
+    const handleReturn = () => {
+         router.push(`/auth/login`); 
     }
     useEffect(() => {
         if (getOtpRSP.state.data) {
