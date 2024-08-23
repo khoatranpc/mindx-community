@@ -51,7 +51,7 @@ const Login = () => {
     }, [authLogin.state])
     // dung de chuyen trang
     const handleForgotPasswordClick = () => {
-    router.push(`/auth/forget`);
+    router.push(`/auth/forgotPassword`);
 };
     return (
         <div className="formLogin m-auto">

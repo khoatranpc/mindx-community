@@ -1,22 +1,31 @@
 'use client';
-import { Form, Flex, Input ,Button,notification} from 'antd'
+import { Form, Flex, Input ,Button,notification,Spin} from 'antd'
 
 import {useState} from 'react'
 import React from 'react'
 import type { GetProps } from 'antd';
 import { useRouter } from 'next/navigation';
 type OTPProps = GetProps<typeof Input.OTP>;
+import MindXLoading from '@/components/MindXLoading';
 
 const ResetPassword = () => {
-  // const [otp, setOtp] = useState('')
+  const [otp, setOtp] = useState('')
   const [email, setEmail] = useState('')
   const [newPass, setNewPass] = useState('')
   const [confirmPass, setConfirmPass] = useState('')
-
+  const [loading, setLoading] = useState(false)
+  const [showForm, setShowForm] = useState(false)
+  const router = useRouter()
 
   const onChange: OTPProps['onChange'] = (text: string) => {
-  
-    console.log('otp:', text);
+    setOtp(text)
+    if (text.length === 6) {
+      setLoading(true)
+      setTimeout(() => {
+        setLoading(false)
+        setShowForm(true)
+      },2000)
+    }
   };
  const sharedProps: OTPProps = {
     onChange,
@@ -41,15 +50,9 @@ const ResetPassword = () => {
       })
     }
     else {
-        // notification.success({
-        // message: 'Hoàn thành',
-        // description: 'Bạn đã cập nhật mật khẩu thành công',
-        //   placement: 'topRight',
-        // duration:4,
-        // showProgress:true
-        // })
-      // router.push(`/auth/login`);
-      onChange
+      router.push(`/auth/login`);
+      // in ra thong tin
+      console.log('otp: ',otp)
       console.log('email: ', email);
       console.log('newPass: ', newPass);
       console.log('confirmPass: ', confirmPass);
@@ -60,14 +63,22 @@ const ResetPassword = () => {
   return (
     <div>
       <h3 className={'text-[2.6rem] font-bold mb-[2.8rem]'}>Reset Password</h3>
-      <Form>
+      <Form layout='vertical'>
       {/* nhap otp */}
-        <Form.Item className='otp-container'>
-          <h4 className={'text-[2.6rem] font-bold mb-[2.8rem] mr-4'}>OTP CODE</h4>
+        <Form.Item className='otp-container' >
+          <p className={'text-[2rem]  mb-[2rem] mr-4'}>OTP CODE</p>
           <Flex gap="middle"  vertical>
-             <Input.OTP formatter={(str) => str.toUpperCase()} {...sharedProps} />
-         </Flex>
-    </Form.Item>
+             <Input.OTP formatter={(str) => str.toUpperCase()} {...sharedProps} size='large' />
+          </Flex>
+        </Form.Item>
+        
+        {/* {loading && <Spin size='large' className='m-[10rem] flex justify-center items-center' />}
+         */}
+        {loading && <MindXLoading/>}
+
+        {/* truong hop showForm */}
+        {showForm && (
+          <>
         {/* nhap email */}
         <Form.Item
           label="Email"
@@ -102,6 +113,8 @@ const ResetPassword = () => {
               Xác Nhận thông tin
           </Button>
         </Form.Item>
+          </>
+        )}
       </Form>
     </div>
   )
