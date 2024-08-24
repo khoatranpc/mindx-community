@@ -1,9 +1,8 @@
 "use client";
-import { motion, useScroll } from "framer-motion";
 import Typewriter from "typewriter-effect";
 import React from "react";
 import { Avatar } from "antd";
-import Header, { AnchorHref, AnchorIntroducePageTitle } from "./Header";
+import { AnchorHref, AnchorIntroducePageTitle } from "./Header";
 import ListLect from "./ListLect";
 import Students from "./Students/index"
 import Events from "./Events"
@@ -13,6 +12,7 @@ import Programmer from "@/icons/Programmer";
 import Student from "@/icons/Student";
 import Infinity from "@/icons/Infinity";
 import "./styles.scss";
+import IntroduceLayout from "@/layouts/IntroduceLayout";
 
 const itemsUser = [
   [
@@ -44,16 +44,8 @@ const itemsUser = [
 ];
 
 const Introduce = () => {
-  const { scrollYProgress } = useScroll();
   return (
-    <div className="introducePage max-w-screen-2xl m-auto">
-      <motion.div
-        className="progress-bar bg-[var(--base)] max-w-screen-2xl m-auto z-50 left-[unset!important]"
-        style={{ scaleX: scrollYProgress }}
-      >
-        {" "}
-      </motion.div>
-      <Header />
+    <IntroduceLayout>
       <div className="banner p-[5.6rem]">
         <div className="row flex items-center gap-[2.4rem]">
           <div className="des w-[60%]">
@@ -212,7 +204,7 @@ const Introduce = () => {
         </h2>
         <ListLect />
       </div>
-    </div>
+    </IntroduceLayout>
   );
 };
 
