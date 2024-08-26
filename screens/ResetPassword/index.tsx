@@ -1,6 +1,5 @@
 'use client';
 import { Form, Flex, Input, Button, notification } from 'antd'
-
 import { useState } from 'react'
 import React from 'react'
 import type { GetProps } from 'antd';
@@ -39,7 +38,7 @@ const ResetPassword = () => {
         duration: 4,
         showProgress: true
       });
-
+      return 
     }
     if (newPass !== confirmPass) {
       notification.error({
@@ -67,14 +66,13 @@ const ResetPassword = () => {
       <Form layout='vertical'>
       {/* nhap otp */}
         <Form.Item className='otp-container' >
-          <p className={'text-[2rem]  mb-[2rem] mr-4'}>OTP CODE</p>
+          <p className={'text-[2rem]  mb-[2rem] mr-4'}>Vui lòng nhập mã OTP của bạn tại đây</p>
           <Flex gap="middle"  vertical>
              <Input.OTP formatter={(str) => str.toUpperCase()} {...sharedProps} size='large' />
           </Flex>
         </Form.Item>
         
-        {/* {loading && <Spin size='large' className='m-[10rem] flex justify-center items-center' />}
-         */}
+    
         {loading && <MindXLoading/>}
 
         {/* truong hop showForm */}
