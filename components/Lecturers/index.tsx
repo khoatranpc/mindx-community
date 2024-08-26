@@ -1,26 +1,27 @@
 import React, { useState } from "react";
 
-const Lecturer = (props: any) => {
+const Lecturer = (props:any) => {
   // const [teacher, setTeacher] = useState([]);
 
   return (
-    <div className="lecturer-item ">
-      <img
-        src="https://picsum.photos/236/315"
-        alt=""
+    <div className="lecturer-item mx-auto mb- w-fit pb-2">
+      <div
         className="LecturerAvatar"
-        width={236}
-        height={315}
-      />
-      <div className="LecturerInfo">
-        <h1 className="LecturerName">Nguyễn Văn A</h1>
-        <h1 className="LecturerCareer">Lập trình viên Web Fullstack</h1>
-        <p className="LecturerDiscription">
-          Có 10 năm kinh nghiệm trong ngành lập trình phần mềm, đã có chứng chỉ
-          nghiệp vụ sư phạm đạt xuất sắc
+        style={{
+          backgroundImage:
+            "url(https://img.freepik.com/free-photo/smiling-portrait-studio-woman_1303-2289.jpg)",
+        }}
+      ></div>
+      <div className="LecturerInfo font-bold">
+        <h1 className="LecturerName text-2xl font-bold">{props.item.name}</h1>
+        <h1 className="LecturerCareer text-base mt-3 mb-7 font-bold">
+          {props.item.course}
+        </h1>
+        <p className="LecturerDiscription text-xl ">
+          {props.item.description}
         </p>
       </div>
-        <button className="moreDetails ">Chi tiết</button>
+      <button className="moreDetails mt-14">Chi tiết</button>
     </div>
   );
 };
