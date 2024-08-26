@@ -8,15 +8,28 @@ import StarRating from "@/components/StarRating";
 import "./styles.scss";
 import { LecturerDisplay } from "./LecturerDisplay";
 
+interface Lecturer {
+  key: number;
+  fullName: string;
+  email: string;
+  phoneNumber: string;
+  cv: string;
+  status: string;
+  position: string;
+  subject: string;
+  expertise: string;
+  rating: number;
+}
+
 const AdminLectures = () => {
-  const [lecturers, setLecturers] = useState([]);
+  const [lecturers, setLecturers] = useState<Lecturer[]>([]);
   const [open, setOpen] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
-  const [editingLecturer, setEditingLecturer] = useState(null);
-  const [selectedLecturer, setSelectedLecturer] = useState(null);
+  const [editingLecturer, setEditingLecturer] = useState<Lecturer | null>(null);
+  const [selectedLecturer, setSelectedLecturer] = useState<Lecturer | null>(null);
   const [form] = Form.useForm();
 
-  const columns: ColumnsType = [
+  const columns: ColumnsType<Lecturer> = [
     {
       key: "FullName",
       dataIndex: "fullName",
@@ -112,18 +125,18 @@ const AdminLectures = () => {
       .validateFields()
       .then((values) => {
         setConfirmLoading(true);
-        const storedLecturers =
-          JSON.parse(localStorage.getItem("lecturers")) || [];
+        const storedLecturers: Lecturer[] =
+          JSON.parse(localStorage.getItem("lecturers") || "[]");
         const avatar =
           values.avatar && values.avatar[0]
             ? values.avatar[0].thumbUrl
             : "/mindxavatar.webp";
 
-        let updatedLecturers;
+        let updatedLecturers: Lecturer[];
 
         // Edit
         if (editingLecturer) {
-          updatedLecturers = storedLecturers.map((lecturer: { key: any }) =>
+          updatedLecturers = storedLecturers.map((lecturer) =>
             lecturer.key === editingLecturer.key
               ? { ...lecturer, ...values, avatar }
               : lecturer
@@ -131,7 +144,7 @@ const AdminLectures = () => {
           setLecturers(updatedLecturers);
         } else {
           // Create new lecturer
-          const newLecturer = {
+          const newLecturer: Lecturer = {
             key: storedLecturers.length,
             ...values,
             status: "Hoạt động",
@@ -159,15 +172,15 @@ const AdminLectures = () => {
     form.resetFields();
   };
 
-  const onDelete = (key: any) => {
+  const onDelete = (key: number) => {
     const updatedLecturers = lecturers.filter(
-      (lecturer) => lecturer.key !== key
+      (lecturer: Lecturer) => lecturer.key !== key
     );
     setLecturers(updatedLecturers);
     localStorage.setItem("lecturers", JSON.stringify(updatedLecturers));
   };
 
-  const onEdit = (record: any) => {
+  const onEdit = (record: Lecturer) => {
     setEditingLecturer(record);
     form.setFieldsValue({
       ...record,
@@ -175,7 +188,7 @@ const AdminLectures = () => {
     setOpen(true);
   };
 
-  const onShowDetail = (record: any) => {
+  const onShowDetail = (record: Lecturer) => {
     setSelectedLecturer(record);
   };
 
@@ -184,7 +197,8 @@ const AdminLectures = () => {
   };
 
   useEffect(() => {
-    const storedLecturers = JSON.parse(localStorage.getItem("lecturers")) || [];
+    const storedLecturers: Lecturer[] =
+      JSON.parse(localStorage.getItem("lecturers") || "[]");
     setLecturers(storedLecturers);
   }, []);
 
