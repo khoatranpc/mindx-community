@@ -8,6 +8,7 @@ import type { GetProps } from "antd";
 import { px } from "framer-motion";
 import Link from "next/link";
 import "./styles.scss";
+import LecturerDetails from "./lecturer/page";
 
 
 type SearchProps = GetProps<typeof Input.Search>;
@@ -16,132 +17,212 @@ type SearchProps = GetProps<typeof Input.Search>;
 
 export const LectureList = [
   {
-    index:1,
-    name: "Nguyễn Văn A",
-    course: "Khoa học máy tính",
-    description: "Có 10 năm kinh nghiệm trong ngành lập trình phần mềm, đã có chứng chỉ nghiệp vụ sư phạm đạt xuất sắc."
+      id: 1,
+      name: "Nguyễn Văn A",
+      course: "Lập trình Python cơ bản",
+      description: "Nguyễn Văn A có kinh nghiệm giảng dạy lập trình Python hơn 5 năm.",
+      workAt: "MindX Hà Nội",
+      levelOfEducation: "Cử nhân Công nghệ Thông tin",
+      facebook: "https://facebook.com/nguyenvana",
+      quoteOfLife: "Không ngừng học hỏi để phát triển."
   },
   {
-    index:2,
-    name: "Trần Thị B",
-    course: "Mạng máy tính",
-    description: "Giảng dạy về bảo mật mạng và các giao thức truyền thông."
+      id: 2,
+      name: "Trần Thị B",
+      course: "Phát triển Web với ReactJS",
+      description: "Trần Thị B là chuyên gia trong phát triển các ứng dụng web hiện đại.",
+      workAt: "MindX Hà Nội",
+      levelOfEducation: "Thạc sĩ Khoa học Máy tính",
+      facebook: "https://facebook.com/tranthib",
+      quoteOfLife: "Thành công là một hành trình, không phải là đích đến."
   },
   {
-    index:3,
-    name: "Lê Văn C",
-    course: "Hệ thống thông tin",
-    description: "Tập trung vào quản lý dữ liệu và phát triển hệ thống thông tin."
+      id: 3,
+      name: "Phạm Văn C",
+      course: "Khoa học Dữ liệu với Python",
+      description: "Phạm Văn C chuyên sâu trong lĩnh vực khoa học dữ liệu và trí tuệ nhân tạo.",
+      workAt: "MindX Hà Nội",
+      levelOfEducation: "Tiến sĩ Khoa học Máy tính",
+      facebook: "https://facebook.com/phamvanc",
+      quoteOfLife: "Dữ liệu là sức mạnh trong thời đại công nghệ."
   },
   {
-    index:4,
-    name: "Phạm Thị D",
-    course: "Trí tuệ nhân tạo",
-    description: "Dạy về các thuật toán học máy và xử lý ngôn ngữ tự nhiên."
+      id: 4,
+      name: "Lê Thị D",
+      course: "An ninh mạng và bảo mật thông tin",
+      description: "Lê Thị D có nhiều năm kinh nghiệm trong lĩnh vực an ninh mạng.",
+      workAt: "MindX Hà Nội",
+      levelOfEducation: "Thạc sĩ An toàn Thông tin",
+      facebook: "https://facebook.com/lethid",
+      quoteOfLife: "Bảo mật không phải là lựa chọn, mà là bắt buộc."
   },
   {
-    index:5,
-    name: "Hoàng Văn E",
-    course: "Phát triển phần mềm",
-    description: "Chuyên về thiết kế và phát triển các ứng dụng phần mềm."
+      id: 5,
+      name: "Vũ Văn E",
+      course: "Lập trình Java nâng cao",
+      description: "Vũ Văn E là chuyên gia với hơn 10 năm kinh nghiệm lập trình Java.",
+      workAt: "MindX Hà Nội",
+      levelOfEducation: "Cử nhân Kỹ thuật Phần mềm",
+      facebook: "https://facebook.com/vuvane",
+      quoteOfLife: "Mọi vấn đề đều có giải pháp, hãy bắt đầu từ việc đơn giản nhất."
   },
   {
-    index:6,
-    name: "Nguyễn Thị F",
-    course: "Khoa học dữ liệu",
-    description: "Giảng dạy về phân tích dữ liệu lớn và học sâu."
+      id: 6,
+      name: "Ngô Thị F",
+      course: "Lập trình Android với Kotlin",
+      description: "Ngô Thị F là chuyên gia về phát triển ứng dụng di động Android.",
+      workAt: "MindX Hà Nội",
+      levelOfEducation: "Thạc sĩ Công nghệ Phần mềm",
+      facebook: "https://facebook.com/ngothif",
+      quoteOfLife: "Tạo ra giá trị thực tế qua từng dòng code."
   },
   {
-    index:7,
-    name: "Đỗ Văn G",
-    course: "Công nghệ thông tin",
-    description: "Dạy về các nguyên lý cơ bản của công nghệ thông tin và ứng dụng."
+      id: 7,
+      name: "Đặng Văn G",
+      course: "Kỹ thuật Máy tính và Hệ thống Nhúng",
+      description: "Đặng Văn G có kinh nghiệm trong thiết kế hệ thống nhúng và kỹ thuật máy tính.",
+      workAt: "MindX Hà Nội",
+      levelOfEducation: "Cử nhân Kỹ thuật Máy tính",
+      facebook: "https://facebook.com/dangvang",
+      quoteOfLife: "Khám phá và sáng tạo không ngừng nghỉ."
   },
   {
-    index:8,
-    name: "Vũ Thị H",
-    course: "Kỹ thuật phần mềm",
-    description: "Chuyên về quy trình phát triển và quản lý dự án phần mềm."
+      id: 8,
+      name: "Hoàng Thị H",
+      course: "Phân tích và Thiết kế Hệ thống Thông tin",
+      description: "Hoàng Thị H chuyên gia trong phân tích và thiết kế các hệ thống thông tin doanh nghiệp.",
+      workAt: "MindX Hà Nội",
+      levelOfEducation: "Thạc sĩ Hệ thống Thông tin",
+      facebook: "https://facebook.com/hoangthih",
+      quoteOfLife: "Công nghệ là công cụ, sự sáng tạo là chìa khóa."
   },
   {
-    index:9,
-    name: "Phan Văn I",
-    course: "An toàn thông tin",
-    description: "Dạy về bảo mật hệ thống và các biện pháp phòng chống tấn công mạng."
+      id: 9,
+      name: "Bùi Văn I",
+      course: "Phát triển ứng dụng với Node.js",
+      description: "Bùi Văn I là chuyên gia về phát triển backend với Node.js.",
+      workAt: "MindX Hà Nội",
+      levelOfEducation: "Cử nhân Công nghệ Thông tin",
+      facebook: "https://facebook.com/buivani",
+      quoteOfLife: "Sự bền bỉ và kiên trì dẫn đến thành công."
   },
   {
-    index:10,
-    name: "Lý Thị J",
-    course: "Thiết kế web",
-    description: "Giảng dạy về lập trình web và phát triển giao diện người dùng."
+      id: 10,
+      name: "Đỗ Thị K",
+      course: "Trí tuệ Nhân tạo và Máy học",
+      description: "Đỗ Thị K có nhiều năm kinh nghiệm nghiên cứu và giảng dạy về trí tuệ nhân tạo và máy học.",
+      workAt: "MindX Hà Nội",
+      levelOfEducation: "Tiến sĩ Trí tuệ Nhân tạo",
+      facebook: "https://facebook.com/dothik",
+      quoteOfLife: "Máy móc có thể học, nhưng con người mới là người sáng tạo."
   }
-]
+];
 
-const UserContext = createContext(LectureList);
+export const UserContext = createContext(LectureList);
 
 const Lecturers = () => {
   const [lecturers, setLecturers] = useState([
     {
-      index:1,
-      name: "Nguyễn Văn A",
-      course: "Khoa học máy tính",
-      description: "Có 10 năm kinh nghiệm trong ngành lập trình phần mềm, đã có chứng chỉ nghiệp vụ sư phạm đạt xuất sắc."
+        id: 1,
+        name: "Nguyễn Văn A",
+        course: "Lập trình Python cơ bản",
+        description: "Nguyễn Văn A có kinh nghiệm giảng dạy lập trình Python hơn 5 năm.",
+        workAt: "MindX Hà Nội",
+        levelOfEducation: "Cử nhân Công nghệ Thông tin",
+        facebook: "https://facebook.com/nguyenvana",
+        quoteOfLife: "Không ngừng học hỏi để phát triển."
     },
     {
-      index:2,
-      name: "Trần Thị B",
-      course: "Mạng máy tính",
-      description: "Giảng dạy về bảo mật mạng và các giao thức truyền thông."
+        id: 2,
+        name: "Trần Thị B",
+        course: "Phát triển Web với ReactJS",
+        description: "Trần Thị B là chuyên gia trong phát triển các ứng dụng web hiện đại.",
+        workAt: "MindX Hà Nội",
+        levelOfEducation: "Thạc sĩ Khoa học Máy tính",
+        facebook: "https://facebook.com/tranthib",
+        quoteOfLife: "Thành công là một hành trình, không phải là đích đến."
     },
     {
-      index:3,
-      name: "Lê Văn C",
-      course: "Hệ thống thông tin",
-      description: "Tập trung vào quản lý dữ liệu và phát triển hệ thống thông tin."
+        id: 3,
+        name: "Phạm Văn C",
+        course: "Khoa học Dữ liệu với Python",
+        description: "Phạm Văn C chuyên sâu trong lĩnh vực khoa học dữ liệu và trí tuệ nhân tạo.",
+        workAt: "MindX Hà Nội",
+        levelOfEducation: "Tiến sĩ Khoa học Máy tính",
+        facebook: "https://facebook.com/phamvanc",
+        quoteOfLife: "Dữ liệu là sức mạnh trong thời đại công nghệ."
     },
     {
-      index:4,
-      name: "Phạm Thị D",
-      course: "Trí tuệ nhân tạo",
-      description: "Dạy về các thuật toán học máy và xử lý ngôn ngữ tự nhiên."
+        id: 4,
+        name: "Lê Thị D",
+        course: "An ninh mạng và bảo mật thông tin",
+        description: "Lê Thị D có nhiều năm kinh nghiệm trong lĩnh vực an ninh mạng.",
+        workAt: "MindX Hà Nội",
+        levelOfEducation: "Thạc sĩ An toàn Thông tin",
+        facebook: "https://facebook.com/lethid",
+        quoteOfLife: "Bảo mật không phải là lựa chọn, mà là bắt buộc."
     },
     {
-      index:5,
-      name: "Hoàng Văn E",
-      course: "Phát triển phần mềm",
-      description: "Chuyên về thiết kế và phát triển các ứng dụng phần mềm."
+        id: 5,
+        name: "Vũ Văn E",
+        course: "Lập trình Java nâng cao",
+        description: "Vũ Văn E là chuyên gia với hơn 10 năm kinh nghiệm lập trình Java.",
+        workAt: "MindX Hà Nội",
+        levelOfEducation: "Cử nhân Kỹ thuật Phần mềm",
+        facebook: "https://facebook.com/vuvane",
+        quoteOfLife: "Mọi vấn đề đều có giải pháp, hãy bắt đầu từ việc đơn giản nhất."
     },
     {
-      index:6,
-      name: "Nguyễn Thị F",
-      course: "Khoa học dữ liệu",
-      description: "Giảng dạy về phân tích dữ liệu lớn và học sâu."
+        id: 6,
+        name: "Ngô Thị F",
+        course: "Lập trình Android với Kotlin",
+        description: "Ngô Thị F là chuyên gia về phát triển ứng dụng di động Android.",
+        workAt: "MindX Hà Nội",
+        levelOfEducation: "Thạc sĩ Công nghệ Phần mềm",
+        facebook: "https://facebook.com/ngothif",
+        quoteOfLife: "Tạo ra giá trị thực tế qua từng dòng code."
     },
     {
-      index:7,
-      name: "Đỗ Văn G",
-      course: "Công nghệ thông tin",
-      description: "Dạy về các nguyên lý cơ bản của công nghệ thông tin và ứng dụng."
+        id: 7,
+        name: "Đặng Văn G",
+        course: "Kỹ thuật Máy tính và Hệ thống Nhúng",
+        description: "Đặng Văn G có kinh nghiệm trong thiết kế hệ thống nhúng và kỹ thuật máy tính.",
+        workAt: "MindX Hà Nội",
+        levelOfEducation: "Cử nhân Kỹ thuật Máy tính",
+        facebook: "https://facebook.com/dangvang",
+        quoteOfLife: "Khám phá và sáng tạo không ngừng nghỉ."
     },
     {
-      index:8,
-      name: "Vũ Thị H",
-      course: "Kỹ thuật phần mềm",
-      description: "Chuyên về quy trình phát triển và quản lý dự án phần mềm."
+        id: 8,
+        name: "Hoàng Thị H",
+        course: "Phân tích và Thiết kế Hệ thống Thông tin",
+        description: "Hoàng Thị H chuyên gia trong phân tích và thiết kế các hệ thống thông tin doanh nghiệp.",
+        workAt: "MindX Hà Nội",
+        levelOfEducation: "Thạc sĩ Hệ thống Thông tin",
+        facebook: "https://facebook.com/hoangthih",
+        quoteOfLife: "Công nghệ là công cụ, sự sáng tạo là chìa khóa."
     },
     {
-      index:9,
-      name: "Phan Văn I",
-      course: "An toàn thông tin",
-      description: "Dạy về bảo mật hệ thống và các biện pháp phòng chống tấn công mạng."
+        id: 9,
+        name: "Bùi Văn I",
+        course: "Phát triển ứng dụng với Node.js",
+        description: "Bùi Văn I là chuyên gia về phát triển backend với Node.js.",
+        workAt: "MindX Hà Nội",
+        levelOfEducation: "Cử nhân Công nghệ Thông tin",
+        facebook: "https://facebook.com/buivani",
+        quoteOfLife: "Sự bền bỉ và kiên trì dẫn đến thành công."
     },
     {
-      index:10,
-      name: "Lý Thị J",
-      course: "Thiết kế web",
-      description: "Giảng dạy về lập trình web và phát triển giao diện người dùng."
+        id: 10,
+        name: "Đỗ Thị K",
+        course: "Trí tuệ Nhân tạo và Máy học",
+        description: "Đỗ Thị K có nhiều năm kinh nghiệm nghiên cứu và giảng dạy về trí tuệ nhân tạo và máy học.",
+        workAt: "MindX Hà Nội",
+        levelOfEducation: "Tiến sĩ Trí tuệ Nhân tạo",
+        facebook: "https://facebook.com/dothik",
+        quoteOfLife: "Máy móc có thể học, nhưng con người mới là người sáng tạo."
     }
-  ])
+])
 
   return (
     <>
@@ -166,7 +247,7 @@ const Lecturers = () => {
               placeholder="Tìm kiếm..."
               className="searchInput text-lg pl-5"
             />
-            <button className="searchBtn ml-3 p-3 text-2xl">
+            <button className="searchBtn ml-3 p-3 text-2xl ">
               Tìm kiếm
             </button>
           </div>
@@ -174,10 +255,12 @@ const Lecturers = () => {
         </div>
         <div className="ListLecturers my-4 mx-auto flex gap-5 flex-wrap">
           {lecturers.map((e) => {
-            return <Lecturer item={e} key={e.index} />
+            return <Lecturer item={e} key={e.id} />
           })}
         </div>
       </div>
+      <UserContext.Provider value={lecturers}>
+      </UserContext.Provider>
     </>
   );
 };

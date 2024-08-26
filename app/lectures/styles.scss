@@ -61,35 +61,31 @@
 
     .lecturer-item {
       border-bottom: 2px solid #bb0409;
+      height: fit-content;
       .LecturerAvatar {
         width: 23.6rem;
         height: 31.5rem;
         background-size: cover;
       }
       .LecturerInfo {
-        border-spacing: auto 12px;
         .LecturerName {
           color: #bb0409;
-        }
-
-        .LecturerCareer {
-          font-size: 16px;
-          font-weight: bold;
         }
         .LecturerDiscription {
           width: 23rem;
           color: rgb(91, 91, 91);
         }
       }
-
-      .moreDetails {
-        width: 7rem;
-        height: 2.7rem;
-        color: white;
-        background-color: #bb0409;
-        border: 1px solid white;
-        display: block;
+      .viewmore{
+        .moreDetails {
+          width: 7rem;
+          height: 2.7rem;
+          color: white;
+          background-color: #bb0409;
+          border: 1px solid white;
+        }
       }
+
     }
   }
 }

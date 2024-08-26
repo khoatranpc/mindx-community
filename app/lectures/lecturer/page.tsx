@@ -8,7 +8,7 @@ import { EnvironmentFilled } from "@ant-design/icons";
 import { BookOutlined } from "@ant-design/icons";
 import { ReadFilled } from "@ant-design/icons";
 import { StarFilled } from "@ant-design/icons";
-import { url } from "inspector";
+import { UserContext } from "../page";
 import "./style.scss";
 
 export function CoLogo() {
@@ -16,20 +16,28 @@ export function CoLogo() {
     <Image src={"/logo.png"} className="CoLogo" alt="" width={56} height={55} />
   );
 }
-const Lecturer: React.FC = () => {
+const LecturerDetails = () => {
+  const lecturers = useContext(UserContext);
+  console.log(lecturers);
+  
+  const crrUrl = window.location.href
+  const id = crrUrl.split('?')[1]
+  const crrLecturer = lecturers.find(item => String(item.id) === String(id));
+  
+  // const crrLecturer = 
+  
   return (
     <div className="teacher-pf">
       <div className="pf-banner w-fit m-auto">
         <div className="left">
           <h1 className="pr-introduce text-6xl">
-            Hi, tôi là <span className="redtext">Nguyễn Văn Cường</span>
+            Hi, tôi là <span className="redtext">{crrLecturer?.name}</span>
           </h1>
           <h1 className="pr-career text-4xl redtext">
-            Lập trình viên FullStack
+            {crrLecturer?.course}
           </h1>
           <p className="pr-discription text-2xl redtext">
-            Có 10 năm kinh nghiệm trong ngành lập trình phần mềm, đã có chứng
-            chỉ nghiệp vụ sư phạm đạt xuất sắc
+            {crrLecturer?.description}
           </p>
           <div className="full-red-box text-2xl pl-9 py-4 gap-2 flex flex-col justify-center tracking-wider">
             <h1>Lập trình viên FullStack</h1>
@@ -41,10 +49,15 @@ const Lecturer: React.FC = () => {
           <div className="up-highlight">
             <div className="wrapper">
               <div className="blankbox"></div>
-              <CoLogo />
+              <div className="ComLogo"></div>
+              {/* <CoLogo /> */}
             </div>
           </div>
-          <div className="down-highlight"></div>
+          <div className="down-highlight flex items-end justify-center">
+            <div className="quoteOfLife text-xl mb-3">
+            "{crrLecturer?.quoteOfLife}"
+            </div>
+          </div>
           <div
             className="teacher-img"
             style={{
@@ -61,7 +74,7 @@ const Lecturer: React.FC = () => {
               }}
             ></div>
             <div className="rating">
-              <div className="rating-score text-lg">4.0</div>
+              <div className="rating-score text-2xl">4.0</div>
               <div className="rating-star">
                 <StarRating className="Star" rate={4} />
               </div>
@@ -116,7 +129,7 @@ const Lecturer: React.FC = () => {
                 </div>
                 <div className="text text-2xl ml-4">
                   <strong>Họ và tên:</strong>
-                  <div className="mt-2 small text-2xl">Nguyễn Văn A</div>
+                  <div className="mt-2 small text-2xl">{crrLecturer?.name}</div>
                 </div>
               </div>
             </div>
@@ -129,7 +142,7 @@ const Lecturer: React.FC = () => {
                 </div>
                 <div className="text text-2xl ml-4">
                   <strong>Nơi công tác: </strong>
-                  <div className="mt-2 small text-2xl">MindX Hà Nội</div>
+                  <div className="mt-2 small text-2xl">{crrLecturer?.workAt}</div>
                 </div>
               </div>
             </div>
@@ -142,7 +155,7 @@ const Lecturer: React.FC = () => {
                 </div>
                 <div className="text text-2xl ml-4">
                   <strong>Trình độ học vấn: </strong>
-                  <div className="mt-2 small text-2xl">Thạc sĩ</div>
+                  <div className="mt-2 small text-2xl">{crrLecturer?.levelOfEducation}</div>
                 </div>
               </div>
             </div>
@@ -170,9 +183,9 @@ const Lecturer: React.FC = () => {
                 </div>
                 <div className="text text-2xl ml-4">
                   <strong>Trang cá nhân: </strong>
-                  <div className="mt-2 small text-2xl">
-                    Lập trình Fullstack, Python, Java,...
-                  </div>
+                  <a href="" className="mt-2 small text-2xl block blue">
+                    {crrLecturer?.facebook}
+                  </a>
                 </div>
               </div>
             </div>
@@ -257,4 +270,4 @@ const Lecturer: React.FC = () => {
   );
 };
 
-export default Lecturer;
+export default LecturerDetails;

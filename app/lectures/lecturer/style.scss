@@ -60,11 +60,15 @@
           background-color: white;
           z-index: 1;
         }
-        .CoLogo {
+        .ComLogo {
           position: absolute;
+          background-image: url(../../../public/logo.png);
+          background-size: contain;
+          width: 5.6rem;
+          height: 5.5rem;
           top: -2.3rem;
           left: -1.7rem;
-          z-index: 2;
+          z-index: 3;
         }
       }
       .down-highlight {
@@ -76,6 +80,9 @@
         border-radius: 20px;
         position: absolute;
         z-index: 5;
+        .quoteOfLife{
+          color: #bb0409;
+        }
       }
       .teacher-img {
         position: relative;
@@ -87,8 +94,8 @@
       }
       .avatar-rating {
         position: absolute;
-        left: -80px;
-        bottom: -15px;
+        left: -8rem;
+        bottom: -1.5rem;
         z-index: 10;
         .avatar {
           border-radius: 100%;
@@ -103,7 +110,6 @@
           left: 9rem;
           bottom: -0.5rem;
           .rating-score {
-            font-size: 16px;
             width: 4rem;
             height: 4rem;
             border-radius: 100%;
@@ -223,6 +229,10 @@
           .field {
             display: flex;
             align-items: center;
+            .blue{
+              color: #0469bb;
+              text-decoration: dashed;
+            }
           }
         }
       }
