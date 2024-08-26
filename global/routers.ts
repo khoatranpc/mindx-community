@@ -7,8 +7,7 @@ const routerByPage: Record<Page, string> = {
     AdminListStudent: '/mindx/admin/students',
     AdminWaiting: '/mindx/admin/students?waiting=true',
     AdminLecture: '/mindx/admin/lectures',
-    AdminCourses: '/mindx/admin/courses',
-    AdminMailsTemplate: '/mindx/admin/mails/templates'
+    AdminCourses: '/mindx/admin/courses'
 };
 
 export {

@@ -12,6 +12,14 @@
         p.des {
             font-size: 1.4rem !important;
         }
+        button.moreButton {
+            margin-top: 5px;
+            display: block;
+            width: 100px;
+            font-size: 1.4rem !important;
+            padding: auto 10px;
+            border: 1px solid var(--base);
+        }
     }
 
     @keyframes move {
