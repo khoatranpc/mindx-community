@@ -176,11 +176,11 @@ const AdminLectures = () => {
   };
 
   const onShowDetail = (record: any) => {
-    setSelectedLecturer(record); 
+    setSelectedLecturer(record);
   };
 
   const onBack = () => {
-    setSelectedLecturer(null); 
+    setSelectedLecturer(null);
   };
 
   useEffect(() => {
@@ -218,7 +218,7 @@ const AdminLectures = () => {
           </div>
         </>
       ) : (
-        <LecturerDisplay viewingLecturer={selectedLecturer} onBack={onBack} /> 
+        <LecturerDisplay viewingLecturer={selectedLecturer} onBack={onBack} />
       )}
     </div>
   );
