@@ -33,9 +33,9 @@
               </Col>
               <Col span={12} className="text-2xl">
                 Họ và tên:{" "}
-                <span className="text-black font-bold">
+                {/* <span className="text-black font-bold">
                   {viewingLecturer.fullName}
-                </span>
+                </span> */}
                 <Input
                   defaultValue={viewingLecturer.fullName}
                   className="mb-4"
