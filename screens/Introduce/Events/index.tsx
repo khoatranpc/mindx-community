@@ -26,55 +26,55 @@ const Events: React.FC = () => {
       title: "Event 1",
       description: "Description for event 1",
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrVLGzO55RQXipmjnUPh09YUtP-BW3ZTUeAA&s",
+        "https://static.ybox.vn/2022/6/5/1654226068984-hr-mindx-avatar.png",
     },
     {
       title: "Event 2",
       description: "Description for event 2",
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrVLGzO55RQXipmjnUPh09YUtP-BW3ZTUeAA&s",
+        "https://static.ybox.vn/2022/6/5/1654226068984-hr-mindx-avatar.png",
     },
     {
       title: "Event 3",
       description: "Description for event 3",
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrVLGzO55RQXipmjnUPh09YUtP-BW3ZTUeAA&s",
+        "https://static.ybox.vn/2022/6/5/1654226068984-hr-mindx-avatar.png",
     },
     {
       title: "Event 4",
       description: "Description for event 4",
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrVLGzO55RQXipmjnUPh09YUtP-BW3ZTUeAA&s",
+        "https://static.ybox.vn/2022/6/5/1654226068984-hr-mindx-avatar.png",
     },
     {
       title: "Event 5",
       description: "Description for event 5",
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrVLGzO55RQXipmjnUPh09YUtP-BW3ZTUeAA&s",
+        "https://static.ybox.vn/2022/6/5/1654226068984-hr-mindx-avatar.png",
     },
     {
       title: "Event 6",
       description: "Description for event 6",
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrVLGzO55RQXipmjnUPh09YUtP-BW3ZTUeAA&s",
+        "https://static.ybox.vn/2022/6/5/1654226068984-hr-mindx-avatar.png",
     },
     {
       title: "Event 7",
       description: "Description for event 7",
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrVLGzO55RQXipmjnUPh09YUtP-BW3ZTUeAA&s",
+        "https://static.ybox.vn/2022/6/5/1654226068984-hr-mindx-avatar.png",
     },
     {
       title: "Event 8",
       description: "Description for event 8",
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrVLGzO55RQXipmjnUPh09YUtP-BW3ZTUeAA&s",
+        "https://static.ybox.vn/2022/6/5/1654226068984-hr-mindx-avatar.png",
     },
     {
       title: "Event 9",
       description: "Description for event 9",
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrVLGzO55RQXipmjnUPh09YUtP-BW3ZTUeAA&s",
+        "https://static.ybox.vn/2022/6/5/1654226068984-hr-mindx-avatar.png",
     },
   ];
 
