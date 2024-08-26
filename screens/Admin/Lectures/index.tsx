@@ -123,7 +123,7 @@ const AdminLectures = () => {
 
         // Edit
         if (editingLecturer) {
-          updatedLecturers = storedLecturers.map((lecturer) =>
+          updatedLecturers = storedLecturers.map((lecturer: { key: any }) =>
             lecturer.key === editingLecturer.key
               ? { ...lecturer, ...values, avatar }
               : lecturer
