@@ -31,13 +31,14 @@
               <Col span={24}>
                 <h1 className="text-3xl font-bold text-black">Thông tin khác</h1>
               </Col>
-              <Col span={12} className="text-2xl">
-                Họ và tên:{" "}
-                <span className="text-black font-bold">
+              <Col span={12} className="flex flex-col gap-2 text-2xl text-black">
+                Họ và tên
+                {/* <span className="text-black font-bold">
                   {viewingLecturer.fullName}
-                </span>
+                </span> */}
                 <Input
                   defaultValue={viewingLecturer.fullName}
+                  disabled
                   className="mb-4"
                 />
               </Col>
