@@ -1,0 +1,237 @@
+.teacher-pf {
+  z-index: 100;
+  .pf-banner {
+    display: flex;
+    margin-top: 100px;
+    gap: 60px;
+    // border-bottom: 1px solid black;
+    .left {
+      position: relative;
+      margin-top: 100px;
+      .pr-introduce {
+        font-weight: bold;
+        width: 511px;
+      }
+      .redtext {
+        color: #bb0409;
+      }
+      .pr-career {
+        margin-top: 16px;
+        width: fit-content;
+      }
+      .pr-discription {
+        margin-top: 32px;
+        width: 411px;
+      }
+      .full-red-box {
+        margin-top: 50px;
+        width: 404px;
+        height: 84px;
+        background-color: #bb0409;
+        border: 1px solid white;
+      }
+    }
+    .right {
+      position: relative;
+      z-index: 10;
+      .up-highlight {
+        top: -30px;
+        left: -44px;
+        z-index: 5;
+        position: absolute;
+        .wrapper {
+          width: 362px;
+          height: 451px;
+          border: 3px solid #bb0409;
+          border-radius: 20px;
+          z-index: 0;
+          position: relative;
+        }
+        .blankbox {
+          width: 56px;
+          height: 56px;
+          position: absolute;
+          // border: 3px solid black;
+          top: -23px;
+          left: -23px;
+          background-color: white;
+          z-index: 1;
+        }
+        .CoLogo {
+          position: absolute;
+          top: -23px;
+          left: -17px;
+          z-index: 2;
+        }
+      }
+      .down-highlight {
+        width: 362px;
+        height: 451px;
+        right: -72px;
+        bottom: -49px;
+        border: 3px solid #bb0409;
+        border-radius: 20px;
+        z-index: 0;
+        position: absolute;
+        z-index: 5;
+      }
+      .teacher-img {
+        position: relative;
+        z-index: 6;
+        border-radius: 20px;
+      }
+      .avatar-rating {
+        position: absolute;
+        left: -80px;
+        bottom: -15px;
+        z-index: 10;
+        .avatar {
+          border-radius: 100%;
+          z-index: 1;
+          // position: relative;
+        }
+        .rating {
+          position: absolute;
+          z-index: 2;
+          left: 90px;
+          bottom: -5px;
+          .rating-score {
+            font-size: 16px;
+            width: 41px;
+            height: 41px;
+            border-radius: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            background-color: #bb0409;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            z-index: 1;
+            position: relative;
+          }
+          .rating-star {
+            width: 103px;
+            height: 25px;
+            border-radius: 15px;
+            border: 1px solid #bb0409;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 7px;
+            z-index: 0;
+            background-color: white;
+            left: 20px;
+          }
+        }
+      }
+    }
+  }
+  .pf-follow {
+    margin-top: 100px;
+    background: url(https://canto-wp-media.s3.amazonaws.com/app/uploads/2019/07/19194417/insert-image-html.jpg)
+      no-repeat;
+    background-size: cover;
+    height: 24rem;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .opacity50 {
+      top: 0;
+      z-index: 0;
+      position: absolute;
+      width: 100%;
+      background-color: black;
+      opacity: 50%;
+      height: 24rem;
+    }
+    .achivement-pf {
+      position: relative;
+      z-index: 2;
+      color: white;
+      font-size: 26px;
+      width: 1024px;
+      .pf-list {
+        width: 100%;
+        list-style: outside none none;
+        text-align: center;
+        display: inline-block;
+        li {
+          margin: auto;
+          width: 25%;
+          display: inline-block;
+          vertical-align: top;
+          .item {
+            span {
+              display: block;
+              width: 167px;
+              font-weight: bold;
+              width: 100%;
+            }
+            .num::after {
+              content: "";
+              background: #bb0409;
+              width: 109px;
+              height: 3px;
+              display: block;
+              margin: 13px auto;
+            }
+          }
+        }
+      }
+    }
+  }
+  .main{
+    width: 100%;
+    .wrapper{
+        display: flex;
+        box-shadow: #bb0409 0px 4px 4px 0px;
+        width: 120rem;
+        z-index: 100;
+        position: relative;
+        .teacher-avatar{
+            z-index: 1;
+        }
+        .lbl{
+            z-index: 5;
+            width: 37rem;height: 66px;
+            color: white;
+            font-size: 26px;
+            font-weight:  bold;
+            background-color: #bb0409;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left: 416px;
+            top: 80px;
+        }
+        .details{
+            z-index: 1;
+            color: black;
+            .row-a{
+                width: 60rem;
+                border-bottom: 5px solid #bb0409;
+                .field{
+                    display: flex;
+                    align-items:  center;
+                }
+            }
+        }
+    }
+  }
+  .pf-follow{
+    width: 100%;
+    background-color: #ECECEC;
+    padding: 49px 0 70px;
+    .wrapper{
+      width: 120rem;
+      margin: auto;
+      .story-title{
+        color: #bb0409;
+      }
+    }
+  }
+}

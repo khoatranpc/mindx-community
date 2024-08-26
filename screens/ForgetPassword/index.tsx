@@ -1,17 +1,16 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Form, Input, Button } from 'antd';
-import Alert from '@/components/Alert';
+import { Form, Input, Button, FloatButton,notification } from 'antd';
 import { useGetOTPRSP } from '@/utils/hooks';
 import { queryGetOTP } from './query';
 import { toast } from 'react-toastify';
-
+import { CaretLeftOutlined } from '@ant-design/icons';
 const ForgetPassword = () => {
     const router = useRouter();
     const [email, setEmail] = useState('');
     const getOtpRSP = useGetOTPRSP();
-    const [showAlert, setShowAlert] = useState(false)
+
     const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
         setEmail(event.target.value);
     }
@@ -26,9 +25,27 @@ const ForgetPassword = () => {
                 }
             }
         });
+         if (!email) {
+            notification.error({
+                message: 'Bạn chưa nhập email, vui lòng nhập email của bạn!',
+            });
+        } else {
+            console.log(email);
+            setTimeout(() => {
+                notification.success({
+                    message: 'Hoàn thành',
+                    description: 'Mã OTP đã được gửi thành công, vui lòng kiểm tra email của bạn!',
+                    placement: 'topRight',
+                    duration: 4,
+                    showProgress: true,
+                });
+                router.push(`/auth/resetPassword`);
+            }, 3000);
+        }
+
     }
-    const handleResetPass = () => {
-        router.push(`/auth/reset`);
+    const handleReturn = () => {
+         router.push(`/auth/login`); 
     }
     useEffect(() => {
         if (getOtpRSP.state.data) {
@@ -52,12 +69,15 @@ const ForgetPassword = () => {
                     />
                 </Form.Item>
                 <Form.Item>
-                    <Button type='primary' htmlType='submit' className='w-full font-bold' loading={getOtpRSP.state.isLoading} onClick={handleClick}>Lấy lại mật khẩu</Button>
+                    <Button type='primary' htmlType='submit' className='w-full font-bold'  onClick={handleClick}>Lấy lại mật khẩu</Button>
+                </Form.Item>
+                <Form.Item>
+                    <FloatButton icon={<CaretLeftOutlined />}  onClick={handleReturn} >
+                        
+                    </FloatButton>
                 </Form.Item>
             </Form>
-            {/* {showAlert && (
-                <Alert />
-            )} */}
+
         </div>
     );
 };
