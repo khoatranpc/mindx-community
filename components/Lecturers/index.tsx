@@ -1,6 +1,13 @@
+import Link from "next/link";
 import React, { useState } from "react";
 
-const Lecturer = (props:any) => {
+interface lecturer {
+  name: String,
+  course: String,
+  description: String
+}
+
+const Lecturer = (props: any) => {
   // const [teacher, setTeacher] = useState([]);
 
   return (
@@ -21,7 +28,7 @@ const Lecturer = (props:any) => {
           {props.item.description}
         </p>
       </div>
-      <button className="moreDetails mt-14">Chi tiết</button>
+      <Link href={`lectures/lecturer?${props.item.index}`} className="moreDetails mt-14 text-sm flex items-center justify-center">Chi tiết</Link>
     </div>
   );
 };

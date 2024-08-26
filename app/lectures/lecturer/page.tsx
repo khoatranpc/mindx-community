@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
 import StarRating from "@/components/StarRating";
 import { UserOutlined } from "@ant-design/icons";
@@ -8,20 +8,15 @@ import { EnvironmentFilled } from "@ant-design/icons";
 import { BookOutlined } from "@ant-design/icons";
 import { ReadFilled } from "@ant-design/icons";
 import { StarFilled } from "@ant-design/icons";
-import "./style.scss";
 import { url } from "inspector";
+import "./style.scss";
 
 export function CoLogo() {
   return (
     <Image src={"/logo.png"} className="CoLogo" alt="" width={56} height={55} />
   );
 }
-// export function AchiveBanner() {
-//     return (
-//         <Image src={"/achievement-banner.png"} className="achiveBanner" alt="" width={1440} height={363}/>
-//     )
-// }
-const Lecturer = () => {
+const Lecturer: React.FC = () => {
   return (
     <div className="teacher-pf">
       <div className="pf-banner w-fit m-auto">
