@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion, useScroll } from "framer-motion";
 import Header from '@/screens/Introduce/Header';
+import Footer from '@/screens/Introduce/Footer';
 
 interface Props {
     children: React.ReactNode;
@@ -20,6 +21,7 @@ const IntroduceLayout = (props: Props) => {
             <div className="content w-full">
                 {props.children}
             </div>
+            <Footer />
         </div>
     )
 }
