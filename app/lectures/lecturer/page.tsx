@@ -19,13 +19,13 @@ export function CoLogo() {
 const LecturerDetails = () => {
   const lecturers = useContext(UserContext);
   console.log(lecturers);
-  
-  const crrUrl = window.location.href
-  const id = crrUrl.split('?')[1]
-  const crrLecturer = lecturers.find(item => String(item.id) === String(id));
-  
-  // const crrLecturer = 
-  
+
+  const crrUrl = window.location.href;
+  const id = crrUrl.split("?")[1];
+  const crrLecturer = lecturers.find((item) => String(item.id) === String(id));
+
+  // const crrLecturer =
+
   return (
     <div className="teacher-pf">
       <div className="pf-banner w-fit m-auto">
@@ -33,9 +33,7 @@ const LecturerDetails = () => {
           <h1 className="pr-introduce text-6xl">
             Hi, tôi là <span className="redtext">{crrLecturer?.name}</span>
           </h1>
-          <h1 className="pr-career text-4xl redtext">
-            {crrLecturer?.course}
-          </h1>
+          <h1 className="pr-career text-4xl redtext">{crrLecturer?.course}</h1>
           <p className="pr-discription text-2xl redtext">
             {crrLecturer?.description}
           </p>
@@ -53,18 +51,18 @@ const LecturerDetails = () => {
               {/* <CoLogo /> */}
             </div>
           </div>
-          <div className="down-highlight flex items-end justify-center">
-            <div className="quoteOfLife text-xl mb-3">
-            "{crrLecturer?.quoteOfLife}"
-            </div>
-          </div>
+          <div className="down-highlight flex items-end justify-center"></div>
           <div
             className="teacher-img"
             style={{
               backgroundImage:
                 "url(https://images.squarespace-cdn.com/content/v1/54ee6b54e4b094722873774d/1651271676233-EJSOCKU9OE5ZKGALLAH4/232.jpg?format=2500w)",
             }}
-          ></div>
+          >
+            <div className="quoteOfLife text-xl mb-3">
+              "{crrLecturer?.quoteOfLife}" <strong>- Quote Of Life</strong>
+            </div>
+          </div>
           <div className="avatar-rating">
             <div
               className="avatar"
@@ -142,7 +140,9 @@ const LecturerDetails = () => {
                 </div>
                 <div className="text text-2xl ml-4">
                   <strong>Nơi công tác: </strong>
-                  <div className="mt-2 small text-2xl">{crrLecturer?.workAt}</div>
+                  <div className="mt-2 small text-2xl">
+                    {crrLecturer?.workAt}
+                  </div>
                 </div>
               </div>
             </div>
@@ -155,7 +155,9 @@ const LecturerDetails = () => {
                 </div>
                 <div className="text text-2xl ml-4">
                   <strong>Trình độ học vấn: </strong>
-                  <div className="mt-2 small text-2xl">{crrLecturer?.levelOfEducation}</div>
+                  <div className="mt-2 small text-2xl">
+                    {crrLecturer?.levelOfEducation}
+                  </div>
                 </div>
               </div>
             </div>
