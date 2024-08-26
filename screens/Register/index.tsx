@@ -84,7 +84,7 @@ const Register = () => {
                 />
               </Form.Item>
             </Col>
-            <Col span={24}>
+            {/* <Col span={24}>
               <Form.Item
                 label="Địa chỉ"
                 name="address"
@@ -98,8 +98,8 @@ const Register = () => {
                   style={{ height: "3.5rem" }}
                 />
               </Form.Item>
-            </Col>
-            <Col span={24}>
+            </Col> */}
+            {/* <Col span={24}>
               <Dragger {...props}>
                 <p className="ant-upload-drag-icon">
                   <InboxOutlined />
@@ -109,7 +109,7 @@ const Register = () => {
                 </p>
                 <p className="ant-upload-hint">Kéo hình vào đây để tải lên</p>
               </Dragger>
-            </Col>
+            </Col> */}
           </Row>
         </Form.Item>
         <Form.Item>

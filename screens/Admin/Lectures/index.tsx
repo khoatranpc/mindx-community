@@ -2,19 +2,18 @@
 import { useState, useEffect } from "react";
 import { ColumnsType } from "antd/es/table";
 import { Button, Input, Tag, Form, Popconfirm } from "antd";
-import { LectureDisplay } from "./LecturerDisplay";
 import { LecturerForm } from "./LecturerForm";
 import Table from "@/components/Table";
 import StarRating from "@/components/StarRating";
 import "./styles.scss";
+import { LecturerDisplay } from "./LecturerDisplay";
 
 const AdminLectures = () => {
   const [lecturers, setLecturers] = useState([]);
   const [open, setOpen] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [editingLecturer, setEditingLecturer] = useState(null);
-  const [viewingLecturer, setViewingLecturer] = useState(null);
-  const [viewModalOpen, setViewModalOpen] = useState(false);
+  const [selectedLecturer, setSelectedLecturer] = useState(null);
   const [form] = Form.useForm();
 
   const columns: ColumnsType = [
@@ -177,8 +176,11 @@ const AdminLectures = () => {
   };
 
   const onShowDetail = (record: any) => {
-    setViewingLecturer(record);
-    setViewModalOpen(true);
+    setSelectedLecturer(record); 
+  };
+
+  const onBack = () => {
+    setSelectedLecturer(null); 
   };
 
   useEffect(() => {
@@ -188,31 +190,36 @@ const AdminLectures = () => {
 
   return (
     <div className="lectures flex gap-[1.2rem]">
-      <div className="filter flex-[0.2] border-r-[0.4px] border-r-[black] border-solid">
-        <p className="font-bold">Bộ lọc</p>
-      </div>
-      <div className="tableView flex-1">
-        <div className="search flex justify-between mb-[1.2rem]">
-          <Input className="max-w-[25rem]" size="small" placeholder="Search" />
-          <Button size="small" onClick={showModal}>
-            Tạo mới
-          </Button>
-        </div>
-        <Table columns={columns} dataSource={lecturers} />
-        <LecturerForm
-          editingLecturer={editingLecturer}
-          form={form}
-          open={open}
-          onOk={handleOk}
-          confirmLoading={confirmLoading}
-          onCancel={handleCancel}
-        />
-      </div>
-      <LectureDisplay
-        viewingLecturer={viewingLecturer}
-        close={() => setViewModalOpen(false)}
-        open={viewModalOpen}
-      />
+      {!selectedLecturer ? (
+        <>
+          <div className="filter flex-[0.2] border-r-[0.4px] border-r-[black] border-solid">
+            <p className="font-bold">Bộ lọc</p>
+          </div>
+          <div className="tableView flex-1">
+            <div className="search flex justify-between mb-[1.2rem]">
+              <Input
+                className="max-w-[25rem]"
+                size="small"
+                placeholder="Search"
+              />
+              <Button size="small" onClick={showModal}>
+                Tạo mới
+              </Button>
+            </div>
+            <Table columns={columns} dataSource={lecturers} />
+            <LecturerForm
+              editingLecturer={editingLecturer}
+              form={form}
+              open={open}
+              onOk={handleOk}
+              confirmLoading={confirmLoading}
+              onCancel={handleCancel}
+            />
+          </div>
+        </>
+      ) : (
+        <LecturerDisplay viewingLecturer={selectedLecturer} onBack={onBack} /> 
+      )}
     </div>
   );
 };
