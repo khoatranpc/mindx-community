@@ -23,8 +23,6 @@
 .footer .col-md-3 img {
   width: 100%;
   height: 100px;
-  object-fit: cover;
-
 }
 
 .footer h4 {
@@ -50,4 +48,10 @@
 
 .footer a:hover {
   color: #ccc;
+}
+
+.social-icons {
+  a {
+    margin-right:10px
+  }
 }

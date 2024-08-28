@@ -197,8 +197,7 @@ const Introduce = () => {
         </h2>
         <ListLect />
       </div>
-
-      <div className="events px-[5.6rem]" id={AnchorHref["events"]}>
+      <div className="events px-[5.6rem]" id={AnchorHref["events"]} >
         <h2 className="text-[2.8rem] font-bold text-[var(--base)] mb-[2.4rem]">
           {AnchorIntroducePageTitle.events}
         </h2>
