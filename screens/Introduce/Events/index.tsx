@@ -31,39 +31,39 @@ const EventCard: React.FC<EventCardProps> = ({ title, description, image, link, 
 const Events: React.FC = () => {
   const events = [
     {
-      title: "Event 1",
-      description: "Description for event 1",
+      title: "Back to school",
+      description: "Chào đón năm học mới cùng MindX",
       image:
-        "https://d1hjkbq40fs2x4.cloudfront.net/2017-08-21/files/landscape-photography_1645.jpg",
-      link: "/events", 
+        "https://images-proxy.mindx.edu.vn/1120x,webp/https://website-dev.hn.ss.bfcplatform.vn/16x9_LOGO_aa05e28c5c.png",
+      link: "", 
     },
     {
-      title: "Event 2",
-      description: "Description for event 2",
+      title: "November Sale",
+      description: "Siêu ưu đãi dành cho học viên",
       image:
-        "https://thuvien.hocviennhiepanh.com/wp-content/uploads/37177573_10156528970182840_1475777593566298112_o.jpg",
-      link: "/events",
+        "https://website-dev.hn.ss.bfcplatform.vn/Asset_1_4c4ce95f5c.png",
+      link: "",
     },
     {
-      title: "Event 3",
-      description: "Description for event 3",
+      title: "Cơ hội tìm kiếm việc làm",
+      description: "Ngày hội tuyển dụng của MindX Technology School",
       image:
-        "https://thuvien.hocviennhiepanh.com/wp-content/uploads/37177573_10156528970182840_1475777593566298112_o.jpg",
-      link: "/events",
+        "https://images.careerviet.vn/employer_folders/lot5/225545/105358screenshot2023-08-17at10-47-20.png",
+      link: "",
     },
     {
-      title: "Event 4",
-      description: "Description for event 4",
+      title: "Young Talent",
+      description: "Khoá học lập trình mới cho tài năng trẻ",
       image:
-        "https://thuvien.hocviennhiepanh.com/wp-content/uploads/37177573_10156528970182840_1475777593566298112_o.jpg",
-      link: "/events",
+        "https://mindxcantho.edu.vn/wp-content/uploads/2023/09/2-mindx-can-tho-mo.png",
+      link: "",
     },
     {
-      title: "Event 5",
-      description: "Description for event 5",
+      title: "Đồng hành cùng MindX",
+      description: "Vượt chướng ngại vật, đón chào năm học mới",
       image:
-        "https://thuvien.hocviennhiepanh.com/wp-content/uploads/37177573_10156528970182840_1475777593566298112_o.jpg",
-      link: "/events",
+        "https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/455240468_797255082604605_181694098130779425_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGtgSrAt-nJFSY_7Uu1AjK4GjeWkYGemFgaN5aRgZ6YWG4rP9q0vPYws8XuyyaWAu1-fhPm9rm6zBwjJtlGV413&_nc_ohc=n5IgndeOPQUQ7kNvgGhcNpO&_nc_ht=scontent.fhan17-1.fna&oh=00_AYDP-yM8Mn4Kw01YVggaULGhShmUsHHyX0_GcEtdk7D9Mg&oe=66D5EC2B",
+      link: "",
     },
   ];
 
