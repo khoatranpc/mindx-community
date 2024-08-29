@@ -26,7 +26,9 @@ const AdminLectures = () => {
   const [open, setOpen] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [editingLecturer, setEditingLecturer] = useState<Lecturer | null>(null);
-  const [selectedLecturer, setSelectedLecturer] = useState<Lecturer | null>(null);
+  const [selectedLecturer, setSelectedLecturer] = useState<Lecturer | null>(
+    null
+  );
   const [form] = Form.useForm();
 
   const columns: ColumnsType<Lecturer> = [
@@ -125,8 +127,9 @@ const AdminLectures = () => {
       .validateFields()
       .then((values) => {
         setConfirmLoading(true);
-        const storedLecturers: Lecturer[] =
-          JSON.parse(localStorage.getItem("lecturers") || "[]");
+        const storedLecturers: Lecturer[] = JSON.parse(
+          localStorage.getItem("lecturers") || "[]"
+        );
         const avatar =
           values.avatar && values.avatar[0]
             ? values.avatar[0].thumbUrl
@@ -157,7 +160,6 @@ const AdminLectures = () => {
 
         // Save to localStorage
         localStorage.setItem("lecturers", JSON.stringify(updatedLecturers));
-
         setConfirmLoading(false);
         setOpen(false);
         form.resetFields();
@@ -196,9 +198,19 @@ const AdminLectures = () => {
     setSelectedLecturer(null);
   };
 
+  const onUpdate = (updatedLecturer: Lecturer) => {
+    const updatedLecturers = lecturers.map((lecturer) =>
+      lecturer.key === updatedLecturer.key ? updatedLecturer : lecturer
+    );
+    setLecturers(updatedLecturers);
+    setSelectedLecturer(updatedLecturer);
+    localStorage.setItem("lecturers", JSON.stringify(updatedLecturers));
+  };
+
   useEffect(() => {
-    const storedLecturers: Lecturer[] =
-      JSON.parse(localStorage.getItem("lecturers") || "[]");
+    const storedLecturers: Lecturer[] = JSON.parse(
+      localStorage.getItem("lecturers") || "[]"
+    );
     setLecturers(storedLecturers);
   }, []);
 
@@ -232,7 +244,11 @@ const AdminLectures = () => {
           </div>
         </>
       ) : (
-        <LecturerDisplay viewingLecturer={selectedLecturer} onBack={onBack} />
+        <LecturerDisplay
+          viewingLecturer={selectedLecturer}
+          onBack={onBack}
+          onUpdate={onUpdate}
+        />
       )}
     </div>
   );
