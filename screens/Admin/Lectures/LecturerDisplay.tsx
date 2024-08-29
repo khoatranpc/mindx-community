@@ -2,8 +2,19 @@
 import { useState } from "react";
 import StarRating from "@/components/StarRating";
 import { Button, Col, Row, Tag, Input, Select } from "antd";
+import Lecturer from "./interface/Lecturer";
 
-export const LecturerDisplay = ({ viewingLecturer, onBack, onUpdate }: any) => {
+interface LecturerDisplayProps {
+  viewingLecturer: Lecturer;
+  onBack: () => void;
+  onUpdate: (updatedLecturer: Lecturer) => void;
+}
+
+export const LecturerDisplay = ({
+  viewingLecturer,
+  onBack,
+  onUpdate,
+}: LecturerDisplayProps) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedLecturer, setEditedLecturer] = useState(viewingLecturer);
 

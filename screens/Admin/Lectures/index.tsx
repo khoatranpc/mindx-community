@@ -7,19 +7,7 @@ import Table from "@/components/Table";
 import StarRating from "@/components/StarRating";
 import "./styles.scss";
 import { LecturerDisplay } from "./LecturerDisplay";
-
-interface Lecturer {
-  key: number;
-  fullName: string;
-  email: string;
-  phoneNumber: string;
-  cv: string;
-  status: string;
-  position: string;
-  subject: string;
-  expertise: string;
-  rating: number;
-}
+import Lecturer from "./interface/Lecturer";
 
 const AdminLectures = () => {
   const [lecturers, setLecturers] = useState<Lecturer[]>([]);
