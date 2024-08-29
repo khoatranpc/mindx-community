@@ -55,7 +55,7 @@ export const LecturerDisplay = ({
           />
           <p className="text-4xl font-bold">{editedLecturer.fullName}</p>
           <div className="flex gap-2 text-2xl text-gray-500">
-            <StarRating rate={editedLecturer.rating} />
+            <StarRating rate={Number(editedLecturer.rating) ?? 1} />
             <p>60 ratings</p>
           </div>
           <span className="flex gap-2 text-black font-bold">
