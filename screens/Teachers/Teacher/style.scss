@@ -318,7 +318,6 @@
           color: #bb0409 !important;
         }
         .main{
-          border: 1px solid black;
           display: grid;
           grid-template-areas: 
           "top"
@@ -329,7 +328,6 @@
               width: 60%;
               position: relative;
               .image{
-                border: 1px solid black;
                 border-radius: 2rem;
                 height: 33rem;
                 background-size: cover;
@@ -360,7 +358,6 @@
               width: 50%;
               position: relative;
               .image{
-                border: 1px solid black;
                 border-radius: 2rem;
                 height: 25rem;
                 background-size: cover;

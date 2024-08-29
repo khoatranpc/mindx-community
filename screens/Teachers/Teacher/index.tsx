@@ -303,7 +303,7 @@ const LecturerDetails = () => {
           </div>
         </div>
       </div>
-      <div className="pf-feedback mb-20 w-full mt-28">
+      <div className="pf-feedback w-full mt-28">
         <div className="wrapper w-full flex flex-col items-center justify-center">
           <div className="header mb-10 flex flex-col items-center">
             <div className="feedback-title text-3xl font-bold ">
@@ -339,7 +339,7 @@ const LecturerDetails = () => {
             })}
           </div>
           <div className="pf-projects mb-12 mt-24 w-full">
-            <div className="wrapper mb-12 mt-12 mx-auto w-10/12">
+            <div className="wrapper mt-12 mx-auto w-10/12">
               <div className="header text-4xl font-bold ml-5">
                 Các dự án hoàn thành cùng với học viên
               </div>
