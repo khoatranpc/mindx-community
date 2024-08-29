@@ -94,7 +94,7 @@ const AdminLectures = () => {
           <Button onClick={() => onEdit(record)}>Sửa</Button>
           <Popconfirm
             title="Bạn có chắc chắn muốn xóa không?"
-            onConfirm={() => onDelete(record.key)}
+            onConfirm={() => onDelete(Number(record.key))}
             okText="Có"
             cancelText="Không"
           >
