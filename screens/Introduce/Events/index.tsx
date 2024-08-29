@@ -1,16 +1,25 @@
+'use client'
 import React from "react";
 import "./styles.scss";
+import { useRouter } from 'next/navigation';
 
 interface EventCardProps {
   title: string;
   description: string;
   image: string;
+  link: string;
   className?: string;
 }
 
-const EventCard: React.FC<EventCardProps> = ({ title, description, image, className }) => {
+const EventCard: React.FC<EventCardProps> = ({ title, description, image, link, className }) => {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(link);
+  };
+
   return (
-    <div className={`event-card ${className}`}>
+    <div className={`event-card ${className}`} onClick={handleClick}>
       <div className="event-card__overlay"></div>
       <img src={image} alt={title} className="event-card__image" />
       <h3 className="event-card__title">{title}</h3>
@@ -26,30 +35,35 @@ const Events: React.FC = () => {
       description: "Description for event 1",
       image:
         "https://d1hjkbq40fs2x4.cloudfront.net/2017-08-21/files/landscape-photography_1645.jpg",
+      link: "/events", 
     },
     {
       title: "Event 2",
       description: "Description for event 2",
       image:
         "https://thuvien.hocviennhiepanh.com/wp-content/uploads/37177573_10156528970182840_1475777593566298112_o.jpg",
+      link: "/events",
     },
     {
       title: "Event 3",
       description: "Description for event 3",
       image:
         "https://thuvien.hocviennhiepanh.com/wp-content/uploads/37177573_10156528970182840_1475777593566298112_o.jpg",
+      link: "/events",
     },
     {
       title: "Event 4",
       description: "Description for event 4",
       image:
         "https://thuvien.hocviennhiepanh.com/wp-content/uploads/37177573_10156528970182840_1475777593566298112_o.jpg",
+      link: "/events",
     },
     {
       title: "Event 5",
       description: "Description for event 5",
       image:
         "https://thuvien.hocviennhiepanh.com/wp-content/uploads/37177573_10156528970182840_1475777593566298112_o.jpg",
+      link: "/events",
     },
   ];
 
