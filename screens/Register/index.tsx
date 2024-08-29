@@ -1,42 +1,75 @@
 "use client";
-import { useState } from "react";
-import { Button, Form, Input, Row, Col, Upload, message } from "antd";
-import { InboxOutlined } from "@ant-design/icons";
-const { Dragger } = Upload;
+import { useEffect, useRef } from "react";
+import { Button, Form, Input, Row, Col, message } from "antd";
+import { useAuthRegister } from "@/utils/hooks";
+import { useFormik } from "formik";
+import { queryRegister } from "./query";
+import { uuid } from "@/utils";
+import { useRouter } from "next/navigation";
+
 const Register = () => {
-  // Xử lý upload
-  const props = {
-    name: "file",
-    multiple: true,
-    action: "https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload",
-    onChange(info: any) {
-      const { status } = info.file;
-      // if (status !== "uploading") {
-      //   console.log(info.file, info.fileList);
-      // }
-      if (status === "done") {
-        message.success(`${info.file.name} file uploaded successfully.`);
-      } else if (status === "error") {
-        message.error(`${info.file.name} file upload failed.`);
-      }
+  const authRegister = useAuthRegister();
+  const router = useRouter();
+  const isSubmit = useRef(false);
+  const componentId = useRef(uuid());
+  const { values, handleChange, handleSubmit } = useFormik({
+    initialValues: {
+      userName: "",
+      email: "",
+      phoneNumber: "",
+      password: "",
     },
-  };
+    onSubmit(values) {
+      isSubmit.current = true;
+      authRegister.post?.({
+        graphQl: {
+          query: queryRegister,
+          variables: {
+            createUserInput: {
+              userName: values.userName,
+              email: values.email,
+              phoneNumber: values.phoneNumber,
+              password: values.password,
+              role: "STUDENT",
+              active: false,
+            },
+          },
+        },
+        componentId: componentId.current,
+      });
+    },
+  });
+
+  useEffect(() => {
+    if (authRegister.state.success) {
+      message.success("Đăng ký thành công!");
+      localStorage.setItem(
+        "access_token",
+        authRegister.state.data?.authenticated?.access_token
+      );
+      router.push("/auth/login");
+    } else if (authRegister.state.error) {
+      message.error(authRegister.state.message || "Đăng ký thất bại");
+    }
+  }, [authRegister.state, router]);
 
   return (
     <div className="register m-auto">
-      <h3 className={`text-[2.6rem] font-bold mb-[1.8rem]`}>Đăng ký</h3>
-      <Form layout="vertical" className="p-1">
+      <h3 className="text-[2.6rem] font-bold mb-[1.8rem]">Đăng ký</h3>
+      <Form layout="vertical" className="p-1" onFinish={handleSubmit}>
         <Form.Item>
           <Row gutter={16}>
             <Col span={12}>
               <Form.Item
                 label="Họ và tên"
-                name="fullname"
+                name="userName"
                 rules={[{ required: true, message: "Bạn cần nhập họ và tên!" }]}
               >
                 <Input
                   placeholder="Nhập họ và tên"
-                  name="fullname"
+                  name="userName"
+                  value={values.userName}
+                  onChange={handleChange}
                   style={{ height: "3.5rem" }}
                 />
               </Form.Item>
@@ -46,12 +79,14 @@ const Register = () => {
                 label="Email"
                 name="email"
                 rules={[
-                  { required: true, message: "Bạn cần Email!", type: "email" },
+                  { required: true, message: "Bạn cần nhập Email!", type: "email" },
                 ]}
               >
                 <Input
                   placeholder="Nhập email"
                   name="email"
+                  value={values.email}
+                  onChange={handleChange}
                   style={{ height: "3.5rem" }}
                 />
               </Form.Item>
@@ -67,6 +102,8 @@ const Register = () => {
                 <Input
                   placeholder="Nhập số điện thoại"
                   name="phoneNumber"
+                  value={values.phoneNumber}
+                  onChange={handleChange}
                   style={{ height: "3.5rem" }}
                 />
               </Form.Item>
@@ -80,40 +117,20 @@ const Register = () => {
                 <Input.Password
                   placeholder="Tạo mật khẩu mới"
                   name="password"
+                  value={values.password}
+                  onChange={handleChange}
                   style={{ height: "3.5rem" }}
                 />
               </Form.Item>
             </Col>
-            {/* <Col span={24}>
-              <Form.Item
-                label="Địa chỉ"
-                name="address"
-                rules={[
-                  { required: true, message: "Bạn cần nhập địa chỉ nhà!" },
-                ]}
-              >
-                <Input
-                  placeholder="Nhập địa chỉ"
-                  name="address"
-                  style={{ height: "3.5rem" }}
-                />
-              </Form.Item>
-            </Col> */}
-            {/* <Col span={24}>
-              <Dragger {...props}>
-                <p className="ant-upload-drag-icon">
-                  <InboxOutlined />
-                </p>
-                <p className="ant-upload-text">
-                  Vui lòng tải 2 mặt căn cước công dân
-                </p>
-                <p className="ant-upload-hint">Kéo hình vào đây để tải lên</p>
-              </Dragger>
-            </Col> */}
           </Row>
         </Form.Item>
         <Form.Item>
-          <Button className="w-full" htmlType="submit">
+          <Button
+            className="w-full"
+            htmlType="submit"
+            loading={authRegister.state.isLoading}
+          >
             Đăng ký
           </Button>
         </Form.Item>
