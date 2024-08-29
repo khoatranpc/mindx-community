@@ -1,17 +1,18 @@
 "use client";
-import { motion, useScroll } from "framer-motion";
 import Typewriter from "typewriter-effect";
 import React from "react";
 import { Avatar } from "antd";
-import Header, { AnchorHref, AnchorIntroducePageTitle } from "./Header";
+import { AnchorHref, AnchorIntroducePageTitle } from "./Header";
 import ListLect from "./ListLect";
-import Students from "./Students/index"
-import Events from "./Events"
+import Students from "./Students/index";
+import Events from "./Events";
+import Footer from "./Footer/index";
 import CallCenter from "@/icons/CallCenter";
 import Business from "@/icons/Business";
 import Programmer from "@/icons/Programmer";
 import Student from "@/icons/Student";
 import Infinity from "@/icons/Infinity";
+import IntroduceLayout from "@/layouts/IntroduceLayout";
 import "./styles.scss";
 
 const itemsUser = [
@@ -44,16 +45,8 @@ const itemsUser = [
 ];
 
 const Introduce = () => {
-  const { scrollYProgress } = useScroll();
   return (
-    <div className="introducePage max-w-screen-2xl m-auto">
-      <motion.div
-        className="progress-bar bg-[var(--base)] max-w-screen-2xl m-auto z-50 left-[unset!important]"
-        style={{ scaleX: scrollYProgress }}
-      >
-        {" "}
-      </motion.div>
-      <Header />
+    <IntroduceLayout>
       <div className="banner p-[5.6rem]">
         <div className="row flex items-center gap-[2.4rem]">
           <div className="des w-[60%]">
@@ -135,14 +128,6 @@ const Introduce = () => {
               </p>
             </div>
           </div>
-          <div className="events px-[5.6rem]" id={AnchorHref['events']}>
-            <h2 className="text-[2.8rem] font-bold text-[var(--base)] mb-[2.4rem]">{AnchorIntroducePageTitle.events}</h2>
-            <Events />
-          </div>
-          <div className="events px-[5.6rem]" id={AnchorHref['students']}>
-            <h2 className="text-[2.8rem] font-bold text-[var(--base)] mb-[2.4rem]">{AnchorIntroducePageTitle.students}</h2>
-            <Students />
-          </div>
         </div>
       </div>
       <div
@@ -212,7 +197,24 @@ const Introduce = () => {
         </h2>
         <ListLect />
       </div>
-    </div>
+
+      <div className="events px-[5.6rem]" id={AnchorHref["events"]}>
+        <h2 className="text-[2.8rem] font-bold text-[var(--base)] mb-[2.4rem]">
+          {AnchorIntroducePageTitle.events}
+        </h2>
+        <Events />
+      </div>
+      <div className="students px-[5.6rem]" id={AnchorHref["students"]}>
+        <h2 className="text-[2.8rem] font-bold text-[var(--base)] mb-[2.4rem]">
+          {AnchorIntroducePageTitle.students}
+        </h2>
+        <Students />
+      </div>
+      <div className="">
+        <h2 className=""></h2>
+      </div>
+    </IntroduceLayout >
+
   );
 };
 
